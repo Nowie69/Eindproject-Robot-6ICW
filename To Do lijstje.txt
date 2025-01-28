@@ -1,2 +1,11 @@
 Wat te doen:
-Bestanden uploaden!
+    Index:
+        CSS stijlen misschien nog wat vervolledigen.
+    Over ons:
+        Bijna volledig af, misschien nog wat kleine dingen bijschrijven bij de tekst, CSS stijlen toevoegen.
+    Het verloop:
+        Verloop van de rest nog toevoegen (kan pas op einde na dat alles gemaakt is zodat alles juist is), op einde CSS stijlen toevoegen
+    Controller:
+        Link naar controller.html maken op andere sites zodat de site kan bereikt worden, navigaties naar andere sites toevoegen
+    Meer info:
+        Extra info nog bijvoegen en zo afwerken, op einde CSS stijlen toevoegen
