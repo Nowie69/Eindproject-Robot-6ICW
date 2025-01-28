@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Robotje">
+
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <title>Robot met mecanum wheels</title>
+    </head>
+    <body>
+        <!-- Dit is een commentaar, Hier komt de body -->
+
+
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="over-ons.html">Over-ons</a>
+                <a href="het verloop.html">Het-verloop</a>
+            </nav>
+            <br>
+            <img src="./images/logo school.png" alt="logo school" height="100">
+        </header>
+
+        <main>
+            <br><br>
+
+
+            <h2>De raspberry Pi (mini-computer)</h2>
+            <p>De Raspberry Pi is een server waarop er software (=Node-Red) actief is zodat een smartphone, tablet of PC het dashboard kan zien. Op de server draait ook een Mosquitto broker die nodig is voor de communicatie tussen de robot en NodeRed.</p>
+
+            <h2>Node-Red</h2>
+            <br>
+            <img src="./images/nodered logo.png" alt="nodered logo" width="100">
+            <p>Node-RED is de software die draait op de Raspberry Pi, de laptop en ook gebruikt wordt voor het maken van het dashboard.</p>
+            <p>Node-RED is een visuele programmeertool voor het verbinden en automatiseren van hardware, API's en online diensten. Het maakt gebruik van een flow-gebaseerde interface, ondersteunt protocollen zoals MQTT, en is ideaal voor IoT-toepassingen.</p>
+            <p>Via een Mosquitto broker verstuurt Node-RED de gegevens van het dashboard draadloos naar de Raspberry Pi.</p>
+            <p>Het is open source, uitbreidbaar en compatibel met verschillende platforms.</p>
+
+            <h2>Mosquitto broker</h2>
+            <p>De Mosquitto broker is software die wordt gebruikt om draadloos te communiceren tussen Node-RED, de Raspberry Pi en de microcontroller.</p>
+            <p>Een MQTT-broker, zoals Mosquitto, dient als een centrale server binnen het MQTT-protocol, dat vaak wordt ingezet in IoT (Internet of Things). De broker zorgt ervoor dat berichten van publishers bij de juiste subscribers terechtkomen.</p>
+            <img src="./images/mqttbroker.png" alt="mqttbroker" height="200">
+            <p>Mosquitto is lichtgewicht, ondersteunt verschillende betrouwbaarheidsniveaus (Quality of Service) en maakt efficiënte communicatie mogelijk binnen een draadloos netwerk.</p>
+
+        </main>
+
+        <footer>
+            
+        </footer>
+
+
+
+        <script src="script.js"></script>
+    </body>
+</html>

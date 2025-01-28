@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <title>Controller</title>
+    </head>
+    <body>
+        <!-- Dit is een commentaar, Hier komt de body -->
+        <script src="script.js"></script>
+        <h1 id="h1Controller">Besturing robot via controller</h1>
+        <p id="pController">
+            De robot wordt via een controller bestuurd, hierin zit een micro-controller (ESP32 feather), een batterij, 2 joysticks en een schakelaar.<br>
+            <br>
+            De 2 joysticks staan horizontaal naast elkaar, de linker joystick laat de robot naar voor, achter, links of rechts rijden, de rechter joystick bepaalt hoe de robot rond zijn as draait.<br>
+            De micro controller ontvangt de positie van de joysticks, verwerkt deze en verstuurt het naar de Raspberry Pi.<br>
+            <br>
+            De batterij wordt gebruikt om de controller te gebruiken zonder dat die aangesloten moet zijn op een USB-aansluiting. De batterij wordt aangesloten via de JST-aansluiting. Als de batterij leeg zou zijn dan kan deze opgeladen worden door de ESP32 aan te sluiten via USB.<br>
+            <br>
+            Met de schakelaar kan je de controller aan en uit zetten, door dit kan je de controller wegleggen zonder dat die nog aanstaat en de stroom verspild wordt.<br>
+            <br>
+            Door gebruik te maken van het dashboard kan je kiezen of je de robot bestuurd via de controller of het dashboard.<br>
+            Op het dashboard staan 4 knoppen waar je kunt kiezen of je naar voor, achter, links of rechts wilt gaan, je kan met de slider kiezen hoe snel de robot gaat.
+        </p>
+        <h1 id="h1Controller">Tabel van de controller</h1>
+        <table border="1">
+            <tr>
+                <th align="center" width="200" height="50" id="HoofdVakje">Joystick 1 (Links)</th>
+                <th align="center" width="200" height="50" id="HoofdVakje">Joystick 2 (Rechts)</th>
+                <th align="center" width="200" height="50" id="HoofdVakje">Richting van de robot</th>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Voor</td>
+                <td align="center" id="RichtingVakje">/</td>
+                <td align="center" id="EindVakje">Naar voor <br>rijden</td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Voor</td>
+                <td align="center" id="RichtingVakje">Links</td>
+                <td align="center" id="EindVakje">Rijdt vooruit en maakt een bocht naar links.</td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Voor</td>
+                <td align="center" id="RichtingVakje">Rechts</td>
+                <td align="center" id="EindVakje">Rijdt vooruit en maakt een bocht naar rechts.</td>
+            </tr>
+            <tr>
+                <td height="30" id="LeegVakje"></td>
+                <td height="30" id="LeegVakje"></td>
+                <td height="30" id="LeegVakje"></td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Achter</td>
+                <td align="center" id="RichtingVakje">/</td>
+                <td align="center" id="EindVakje">Naar achter <br>rijden</td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Achter</td>
+                <td align="center" id="RichtingVakje">Links</td>
+                <td align="center" id="EindVakje">Achteruit rijden terwijl de voorkant naar links draait</td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Achter</td>
+                <td align="center" id="RichtingVakje">Rechts</td>
+                <td align="center" id="EindVakje">Achteruit rijden terwijl de voorkant naar rechts draait</td>
+            </tr>
+            <tr>
+                <td height="30" id="LeegVakje"></td>
+                <td height="30" id="LeegVakje"></td>
+                <td height="30" id="LeegVakje"></td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Links</td>
+                <td align="center" id="RichtingVakje">/</td>
+                <td align="center" id="EindVakje">Naar links <br>rijden</td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Links</td>
+                <td align="center" id="RichtingVakje">Links</td>
+                <td align="center" id="EindVakje">Naar links rijden terwijl de voorkant naar links draait</td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Links</td>
+                <td align="center" id="RichtingVakje">Rechts</td>
+                <td align="center" id="EindVakje">Naar links rijden terwijl de voorkant naar rechts draait</td>
+            </tr>
+            <tr>
+                <td height="30" id="LeegVakje"></td>
+                <td height="30" id="LeegVakje"></td>
+                <td height="30" id="LeegVakje"></td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Rechts</td>
+                <td align="center" id="RichtingVakje">/</td>
+                <td align="center" id="EindVakje">Naar rechts <br>rijden</td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Rechts</td>
+                <td align="center" id="RichtingVakje">Links</td>
+                <td align="center" id="EindVakje">Naar rechts rijden terwijl de voorkant naar links draait</td>
+            </tr>
+            <tr>
+                <td align="center" id="RichtingVakje">Rechts</td>
+                <td align="center" id="RichtingVakje">Rechts</td>
+                <td align="center" id="EindVakje">Naar rechts rijden terwijl de voorkant naar rechts draait</td>
+            </tr>
+
+        </table>
+        <h2 id="h1Controller">De spullen en het schema voor de controller</h2>
+        <img src="images/SpullenController.png" alt="Spullen voor de controller" height="300" width="200">
+        <img src="images/schemaController.png" alt="Schema voor de controller">
+        <br>
+        <p id="pController">
+            Links zie je de benodigde spullen voor de controller te maken, op het schema rechts kan je zien hoe de joystick verbonden wordt (de andere joystick wordt ook zo verbonden), en je kan zien waar de batterij aangesloten moet worden.
+        </p>
+    </body>
+</html>

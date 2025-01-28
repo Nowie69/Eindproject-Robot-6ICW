@@ -1,0 +1,90 @@
+html{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+nav{
+
+    background-color: #ffc300;
+    font-size: x-large;
+    word-spacing: 20px;
+    text-align: center;
+
+
+
+    background-color: #ffc300;
+    padding: 25px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: fit-content; /* Brede box */
+    margin-top: auto; /* Laat het flex-systeem de box verticaal centreren */
+    margin-bottom: auto;
+    
+
+}
+a{
+    color: #010101;
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: underline;    
+}
+p{
+    font-size: large;
+    text-align: justify;
+    width: 75%;
+}
+h1{
+    background-color: #008141;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: fit-content; /* Brede box */
+    margin-top: auto; /* Laat het flex-systeem de box verticaal centreren */
+    margin-bottom: auto;
+    color: white;
+}
+h2{
+    background-color: #ffc300;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: fit-content; /* Brede box */
+    margin-top: auto; /* Laat het flex-systeem de box verticaal centreren */
+    margin-bottom: auto;
+    color: white;
+}
+table {
+    width: fit-content;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+thead {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.kader
+{
+    border-color: #ffc300;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: fit-content; /* Brede box */
+    margin-top: auto; /* Laat het flex-systeem de box verticaal centreren */
+    margin-bottom: auto;
+
+    font-size: large;
+    text-align: justify;
+    width: 75%;
+}
