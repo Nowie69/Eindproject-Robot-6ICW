@@ -88,3 +88,9 @@ tbody tr:nth-child(even) {
     text-align: justify;
     width: 75%;
 }
+#ControllerTerug{
+    background-color: #008141;
+    padding:6px;
+    border-radius: 13px;
+    color: yellow;
+}
