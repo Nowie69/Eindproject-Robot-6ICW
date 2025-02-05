@@ -102,6 +102,7 @@ void loop()
   afstandsbediening();
 }
 
+// Verbinding maken met de mosquitto broker
 void mqttConnect()
 {
   while (!mqttClient1.connected())
@@ -109,13 +110,13 @@ void mqttConnect()
     Serial.print("Probeer te verbinden met MQTT-broker...");
     if (mqttClient1.connect(mqttClientName))
     {
+      // Als de microcontroller verbonden is word er een bericht gestuurd naar de MQTT-broker en seriële monitor 
       Serial.println("Verbonden");
       mqttClient1.publish("Hallo", mqttClientName);
-      //Plaats hier alle topics waarvan je data wil ontvangen.
-      //...
     }
     else
     {
+      // Niet verbonden wordt er een een bericht gestuurd in de seriële monitor
       Serial.print("Mislukt, rc=");
       Serial.print(mqttClient1.state());
       Serial.println(" Probeer opnieuw binnen 5 seconden");
@@ -126,6 +127,7 @@ void mqttConnect()
 
 void afstandsbediening()
 {
+  // Alle variabelen aanmaken en op false zetten
   bool blLinks = false;
   bool blRechts = false;
   bool blVooruit = false;
@@ -136,13 +138,15 @@ void afstandsbediening()
   bool blRechtsVooruit = false;
   bool blLinksAchteruit = false;
   bool blRechtsAchteruit = false;
-  readINPUTS();
+  readINPUTS(); // laten lezen van inputs
 
+  //Snelheid van de robot inlezen
   int intPWMPercent = map(intAnalogSnelheid, 0, 4095, 0, 100);
   Serial.println("sneheid: " + intPWMPercent);
   String strPWMPercent = String(intPWMPercent);
   mqttClient1.publish(PubSnelheid, strPWMPercent.c_str());
 
+  //Kijken naar welke kant de robot moet rijden of draaien
   if(intWaardeXL < DeadzoneMIN)
   {
     blLinks = true;
@@ -168,6 +172,7 @@ void afstandsbediening()
     blDraaiRechts = true;
   }
 
+  // Bij elke rijrichting een bericht naar de MQTT-broker versturen om te zeggen welke kant de robot gaat
   if((blVooruit == true)&&(blLinks == true))
   {
     blLinksVooruit = true;
@@ -255,6 +260,7 @@ void afstandsbediening()
 
 void readINPUTS()
 {
+  // Inlezen van alle inputs
   intWaardeXL = analogRead(PosXL);
   intWaardeYL = analogRead(PosYL);
   blButtonL = digitalRead(ButtonL);
