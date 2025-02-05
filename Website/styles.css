@@ -94,3 +94,9 @@ tbody tr:nth-child(even) {
     border-radius: 13px;
     color: yellow;
 }
+#HVinden{
+    color:darkgreen;
+}
+#HVinden:hover{
+    color:yellow;
+}
