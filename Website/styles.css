@@ -1,61 +1,98 @@
 html{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
-nav{
-
-    background-color: #ffc300;
-    font-size: x-large;
-    word-spacing: 20px;
-    text-align: center;
-
-
-
-    background-color: #ffc300;
-    padding: 25px;
-    border-bottom-right-radius: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: fit-content; /* Brede box */
-    margin-top: auto; /* Laat het flex-systeem de box verticaal centreren */
-    margin-bottom: auto;
-    
-
+body {
+    margin-top: 60px; /* Zorgt ervoor dat de inhoud niet achter de navbar komt te staan */
 }
+
+nav {
+    background-color: #01303f; /* Achtergrondkleur van de navigatiebalk */
+    padding: 10px 20px; /* Binnenruimte rondom de inhoud van de navigatiebalk */
+    display: flex; /* Gebruik flexbox voor uitlijning */
+    justify-content: center; /* Centreer de items horizontaal */
+    align-items: center; /* Centreer de items verticaal */
+    position: fixed; /* Zorgt ervoor dat de navbar vast blijft staan */
+    top: 0; /* Plaatst de navbar aan de bovenkant van de pagina */
+    left: 0; /* Zorgt ervoor dat de navbar aan de linkerkant van de pagina zit */
+    width: 100%; /* Zorgt ervoor dat de navbar de volledige breedte van het scherm gebruikt */
+    z-index: 1000; /* Zorgt ervoor dat de navbar boven andere elementen komt te liggen */
+}
+nav a {
+    color: white; /* Tekstkleur van de links */
+    text-decoration: none; /* Verwijder onderstreping van links */
+    font-size: 18px; /* Grootte van de tekst */
+    margin: 0 15px; /* Zorgt voor afstand tussen de elementen */
+    padding: 10px 15px; /* Binnenruimte rondom de linktekst */
+    transition: background-color 0.3s; /* Soepele overgang van achtergrondkleur bij hover */
+}
+nav .navbar-logo {
+    height: 40px; /* Pas de hoogte van de afbeelding aan naar wens */
+    width: auto;
+    margin-right: 20px; /* Ruimte tussen het logo en de navigatielinks */
+    position: absolute; /* Zorgt ervoor dat het logo niet de links verschuift */
+    left: 20px; /* Plaats het logo aan de linkerkant van de navbar */
+}
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Achtergrondkleur bij hover */
+    border-radius: 5px; /* Afgeronde hoeken bij hover */
+}
+
+
 a{
-    color: #010101;
-    text-decoration: none;
+    color: #02577a;
 }
-a:hover
-{
-    text-decoration: underline;    
-}
+
 p{
     font-size: large;
     text-align: justify;
     width: 75%;
 }
-h1{
-    background-color: #008141;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: fit-content; /* Brede box */
-    margin-top: auto; /* Laat het flex-systeem de box verticaal centreren */
-    margin-bottom: auto;
-    color: white;
+
+/* Opmaak voor hoofdtitels */
+h1 {
+    color: #02577a; /* Kleur van de hoofdtitel uit het kleurenpalet */
+    font-size: 32px; /* Grootte van de hoofdtitel */
+    font-weight: bold; /* Maak de tekst vetgedrukt */
+    margin: 30px 0; /* Ruimte boven en onder de hoofdtitel */
+    text-align: center; /* Centreer de tekst */
 }
-h2{
-    background-color: #ffc300;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: fit-content; /* Brede box */
-    margin-top: auto; /* Laat het flex-systeem de box verticaal centreren */
-    margin-bottom: auto;
-    color: white;
+
+/* Opmaak voor tussentitels */
+h2 {
+    color: #02a9f7; /* Kleur van de tussentitel uit het kleurenpalet */
+    font-size: 24px; /* Grootte van de tussentitel */
+    font-weight: bold; /* Maak de tekst vetgedrukt */
+    margin: 20px 0; /* Ruimte boven en onder de tussentitel */
+    padding-bottom: 5px; /* Onderste padding voor extra ruimte */
+    border-bottom: 2px solid #02a9f7; /* Onderlijn om de titel te accentueren */
 }
+
+/* Opmaak voor paragrafen */
+p {
+    color: #000000; /* Zwarte kleur voor de paragraaftekst voor maximale leesbaarheid */
+    font-size: 16px; /* Grootte van de paragraaftekst */
+    line-height: 1.6; /* Regelafstand voor betere leesbaarheid */
+    margin: 10px 0; /* Ruimte boven en onder de paragrafen */
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Horizontaal centreren van de inhoud */
+    align-items: center; /* Verticaal centreren van de inhoud */
+}
+
+/* Opmaak voor de welkomtekst */
+.welkom-text {
+    color: #02577a; /* Donkerblauwe kleur uit het kleurenpalet */
+    font-size: 20px; /* Iets grotere tekst voor nadruk */
+    font-weight: bold; /* Maak de tekst vetgedrukt */
+    text-align: center; /* Centreer de tekst binnen het kader */
+    margin: 20px 0; /* Ruimte boven en onder de welkomtekst */
+    padding: 10px; /* Extra binnenruimte voor betere uitstraling */
+    background-color: rgba(1, 48, 63, 0.1); /* Zachte achtergrondkleur voor subtiele nadruk */
+    border-radius: 5px; /* Afgeronde hoeken voor een zachtere uitstraling */
+}
+
 table {
     width: fit-content;
     border-collapse: collapse;
@@ -73,30 +110,4 @@ thead {
 }
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
-}
-.kader
-{
-    border-color: #ffc300;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: fit-content; /* Brede box */
-    margin-top: auto; /* Laat het flex-systeem de box verticaal centreren */
-    margin-bottom: auto;
-
-    font-size: large;
-    text-align: justify;
-    width: 75%;
-}
-#ControllerTerug{
-    background-color: #008141;
-    padding:6px;
-    border-radius: 13px;
-    color: yellow;
-}
-#HVinden{
-    color:darkgreen;
-}
-#HVinden:hover{
-    color:yellow;
 }

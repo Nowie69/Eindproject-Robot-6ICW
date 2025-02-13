@@ -1,6 +1,7 @@
 Wat te doen:
     Index:
         CSS stijlen misschien nog wat vervolledigen.
+        een grote foto van de robot als deze volledig klaar is
     Over ons:
         Bijna volledig af, misschien nog wat kleine dingen bijschrijven bij de tekst, CSS stijlen toevoegen.
     Het verloop:
@@ -9,3 +10,11 @@ Wat te doen:
         Link naar controller.html maken op andere sites zodat de site kan bereikt worden, navigaties naar andere sites toevoegen
     Meer info:
         Extra info nog bijvoegen en zo afwerken, op einde CSS stijlen toevoegen
+
+    de volledige css aanpassen:
+        navigatiebalk
+        links kleur + links hover
+        paragrafen uitlijnen
+        h1, h2, ... aanpassen
+        de tabel van kleur voorzien
+        kader weg, of als dit nog nodig blijft de opmaak aanpassen
