@@ -17,128 +17,36 @@
             <nav>
                 <img src="./images/logo school.png" alt="logo school" height="100" class="navbar-logo">
                 <a href="index.html">Home</a>
-                <a href="over-ons.html">Over ons</a>
                 <a href="het verloop.html">Het verloop</a>
+                <a href="de-werking.html">De werking</a>
+                <a href="over-ons.html">Over ons</a>
             </nav>
         </header>
 
         <main>
             <br>
             <div class ="container">
-                <p class="welkom-text">Voor ons eindproject hebben wij, Wout Vandevelde en Noah Vermaerke, een unieke robot ontwikkeld met mecanum wielen. Dankzij deze wielen kan de robot soepel in alle richtingen bewegen, inclusief zijwaarts. De besturing gebeurt via een zelfgemaakte afstandsbediening die communiceert met de robot via WiFi. Dit project combineert mechanische innovatie en draadloze technologie.</p>
+                <p class="voorwoord">Voor ons eindproject hebben wij, Wout Vandevelde en Noah Vermaerke, een unieke robot ontwikkeld met mecanum wielen. Dankzij deze wielen kan de robot soepel in alle richtingen bewegen, inclusief zijwaarts. De besturing gebeurt via een zelfgemaakte afstandsbediening die communiceert met de robot via WiFi. Dit project combineert mechanische innovatie en draadloze technologie.</p>
             </div>
             <br>
-            <h1>Globale werking van het project</h1>
-            <p>Het project omvat een robot met een zelfgemaakte afstandsbediening.</p>
-            <p>Het blokschema is opgebouwd uit:</p>
-            <ul>
-                <li>Het robotframe met de raspberry pi (mini-computer) en een powerbank.</li>
-                <li>De router voor het draadloos netwerk.</li>
-                <li>Het dashboard (voor de bediening van de robot op de laptop).</li>
-                <li>De afstandsbediening met de joysticks, batterij en een schakelaar.</li>
-            </ul>
-            <img src="./images/Algemeen blokschema zonder dashboard.png" alt="Algemeen blokschema zonder dashboard" height="450">
+            <div class="container">
+                <div class="content">
+                    <img src="./images/Algemeen blokschema zonder dashboard.png" alt="Algemeen blokschema zonder dashboard" height="450">
+                    <div class="text">
+                        <h1>Globale werking van het project</h1>
+                        <p>Het project omvat een robot met een zelfgemaakte afstandsbediening.</p>
+                        <p>Het blokschema is opgebouwd uit:</p>
+                        <ul>
+                            <li>Het robotframe met de raspberry pi (mini-computer) en een powerbank.</li>
+                            <li>De router voor het draadloos netwerk.</li>
+                            <li>Het dashboard (voor de bediening van de robot op de laptop).</li>
+                            <li>De afstandsbediening met de joysticks, batterij en een schakelaar.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-            <h1>De werking uitgelegd</h1>
-            <br>
-
-            <h2>Het robotframe</h2>
-            <p>Het robotframe bestaat uit: het frame, de husky lens (een camera), 4 DC-motoren (elektrische kleine motoren die de wielen laten draaien), 4 mecanum wheels (wielen die alle richtingen op kunnen), een powerbank en een Raspberry Pi (een mini-computer).</p>
-            <img src="./images/Algemeen blokschema robotframe.png" alt="Algemeen blokschema robotframe" height="450">
-            <p>De Raspberry Pi krijgt signalen door van de afstandsbediening via het draadloos netwerk (Wi-Fi) en stuurt zo de DC-motoren aan om de mecanum wielen te laten draaien en zo de robot de juiste richting te laten rijden.</p>
-            <p>De powerbank is makkelijk op te laden met een USB-kabeltje, en als je de robot uit wil schakelen, trek je gewoon de kabel uit de powerbank.</p>
-
-            <h2>De controller (afstandsbediening)</h2>
-            <p>De controller bestaat uit een micro-controller (de ESP32 feather), 2 joysticks, een batterij en een aan- en uit schakelaar.</p>
-            <img src="./images/Algemeen blokschema micro-controller.png" alt="Algemeen blokschema micro-controller.png" height="450">
-            <p>Met de 1ste joystick stuur je de robot naar voor en achter, links en rechts. Met de 2de joystick bepaal je hoe de robot rond zijn as draait. De micro-controller ontvangt wat de positie van de joysticks zijn, verwerkt deze en stuurt deze door naar de Raspberry Pi op de robot.</p>
-            <p>De batterij is aangesloten op de grote connector van de micro-controller en voorziet deze van stroom. Als de batterij leeg is, dan moet de micro-controller aangesloten worden op de USB-poort waardoor de batterij kan opladen. Als de micro-controller niet gebruikt wordt dan kan de schakelaar gebruikt worden om zo de micro-controller uit te zetten, zodat de energie van de batterij niet wordt verspild.</p>
-            <p>De robot kan niet alleen aangestuurd worden met de controller, maar ook met de knoppen op <a href="#dashboard">het dashboard</a>. Dit wordt verder uitgelegd.</p>
-            <p>Meer informatie over de controller kan je <a href="Controller.html">hier vinden!</a></p>
-
-            <h2>Besturingen met de controller</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Joystick 1 (linker)</th>
-                        <th>Joystick 2 (rechter)</th>
-                        <th>Richting van de robot</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Voor</td>
-                        <td>/</td>
-                        <td>Vooruit.</td>
-                    </tr>
-                    <tr>
-                        <td>Voor</td>
-                        <td>Links</td>
-                        <td>Rijdt vooruit en maakt een bocht naar links.</td>
-                    </tr>
-                    <tr>
-                        <td>Voor</td>
-                        <td>Rechts</td>
-                        <td>Rijdt vooruit en maakt een bocht naar rechts.</td>
-                    </tr>
-                    <tr>
-                        <td>Achter</td>
-                        <td>/</td>
-                        <td>Achteruit.</td>
-                    </tr>
-                    <tr>
-                        <td>Achter</td>
-                        <td>Links</td>
-                        <td>Rijdt achteruit terwijl de neus naar rechts draait.</td>
-                    </tr>
-                    <tr>
-                        <td>Achter</td>
-                        <td>Rechts</td>
-                        <td>Rijdt achteruit terwijl de neus naar links draait.</td>
-                    </tr>
-                    <tr>
-                        <td>Links</td>
-                        <td>/</td>
-                        <td>Links.</td>
-                    </tr>
-                    <tr>
-                        <td>Links</td>
-                        <td>Links</td>
-                        <td>Links terwijl de neus naar links draait.</td>
-                    </tr>
-                    <tr>
-                        <td>Links</td>
-                        <td>Rechts</td>
-                        <td>Links terwijl de neus naar rechts draait.</td>
-                    </tr>
-                    <tr>
-                        <td>Rechts</td>
-                        <td>/</td>
-                        <td>Rechts.</td>
-                    </tr>
-                    <tr>
-                        <td>Rechts</td>
-                        <td>Links</td>
-                        <td>Rechts terwijl de neus naar links draait.</td>
-                    </tr>
-                    <tr>
-                        <td>Rechts</td>
-                        <td>Rechts</td>
-                        <td>Rechts terwijl de neus naar rechts draait.</td>
-                    </tr>
-                </tbody>
-            </table>
             
-            <h2 id="dashboard">Het dashboard</h2>
-            <p>Het dashboard is een soort website/app waarop men bepaalde aansturingen kan doen. Je kan op het dashboard de robot vooruit, achteruit, links en rechts laten rijden, en ook rond zijn as laten draaien. Met de controller kan je dus meer precieze richtingen op gaan met de robot. </p>
-            <p>Door op de pijltjes te klikken - of op het draai icoontje te klikken - en de slider van de maximum snelheid te verhogen kan je de robot laten rijden. Als je de robot wilt laten stoppen druk je nog eens op de aangedrukte pijltjes, of zet je de slider op 0. </p>
-            <img src="./images/Algemeen blokschema dashboard.png" alt="Algemeen blokschema dashboard" height="200">
-
-            <h2>De router</h2>
-            <p>De router zorgt voor een draadloos netwerk dat gebruikt wordt voor de communicatie van de robot en de tablet, smartphone of PC waarop het dashboard, de Raspberry Pi en de microcontroller draait.</p>
-
-            <h2>Meer info?</h2>
-            <p>Wil je meer info over ons project? <a href="meer info.html">Klik hier.</a></p>
         </main>
 
         <footer>

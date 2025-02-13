@@ -42,6 +42,10 @@ a{
     color: #02577a;
 }
 
+a:hover{
+
+}
+
 p{
     font-size: large;
     text-align: justify;
@@ -78,11 +82,30 @@ p {
 .container {
     display: flex;
     justify-content: center; /* Horizontaal centreren van de inhoud */
-    align-items: center; /* Verticaal centreren van de inhoud */
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Ruimte tussen afbeelding en tekst */
+
+    margin: 20px 0; /* Ruimte boven en onder */
+    padding: 10px; /* Extra binnenruimte voor betere uitstraling */
+    background-color: rgba(1, 48, 63, 0.1); /* Zachte achtergrondkleur voor subtiele nadruk */
+    border-radius: 5px; /* Afgeronde hoeken voor een zachtere uitstraling */
+}
+
+.image {
+    max-width: 40%; /* Pas dit aan naar wens */
+    height: auto;
+}
+
+.text {
+    max-width: 60%;
 }
 
 /* Opmaak voor de welkomtekst */
-.welkom-text {
+.voorwoord {
     color: #02577a; /* Donkerblauwe kleur uit het kleurenpalet */
     font-size: 20px; /* Iets grotere tekst voor nadruk */
     font-weight: bold; /* Maak de tekst vetgedrukt */
