@@ -3,11 +3,11 @@
 // In de library manager moet PubSubClient geïnstalleerd zijn.
 
 //duidelijke namen geven aant de pinnen
-#define PosXL A2
-#define PosYL A3
+#define PosYL A2
+#define PosXL A3
 #define ButtonL 17
-#define PosXR A4
-#define PosYR 32
+#define PosYR A4
+#define PosXR 32
 #define ButtonR 21
 #define PotSnelheid 33
 
