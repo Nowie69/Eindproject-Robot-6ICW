@@ -42,10 +42,6 @@ a{
     color: #02577a;
 }
 
-a:hover{
-
-}
-
 p{
     font-size: large;
     text-align: justify;
@@ -133,4 +129,13 @@ thead {
 }
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+
+footer{
+    background-color: #01303f; /* Achtergrondkleur van de navigatiebalk */
+    padding: 10px 20px; /* Binnenruimte rondom de inhoud van de navigatiebalk */
+    width: 100%;
+    display: flex; /* Gebruik flexbox voor uitlijning */
+    justify-content: center; /* Centreer de items horizontaal */
+    align-items: center; /* Centreer de items verticaal */
 }
