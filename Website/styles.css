@@ -139,3 +139,7 @@ footer{
     justify-content: center; /* Centreer de items horizontaal */
     align-items: center; /* Centreer de items verticaal */
 }
+
+footer, footer * {
+    color:white !important;
+}
