@@ -131,6 +131,24 @@ tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+.TekstStappenplan{
+    background-color: #02a9f7;
+    padding: 10px !important;
+    width: 100vw !important; /* 100% van de viewport breedte */
+    max-width: 100% !important; /* Zorgt ervoor dat het niet kleiner wordt */
+    text-align: center; /* Tekst centreren */
+    display: block; /* Zorgt ervoor dat het als een normaal blokelement werkt */
+    margin: 0; /* Geen extra ruimte aan de zijkanten */
+    border: 2px solid black; /* Zwarte rand van 2px dik */
+    box-sizing: border-box; /* Zorgt ervoor dat de border binnen de breedte blijft */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Centreert horizontaal */
+    align-items: center; /* Centreert verticaal */
+}
+
 footer{
     background-color: #01303f; /* Achtergrondkleur van de navigatiebalk */
     padding: 10px 20px; /* Binnenruimte rondom de inhoud van de navigatiebalk */
@@ -138,6 +156,8 @@ footer{
     display: flex; /* Gebruik flexbox voor uitlijning */
     justify-content: center; /* Centreer de items horizontaal */
     align-items: center; /* Centreer de items verticaal */
+    border: 2px solid black;
+    box-sizing: border-box; /* Zorgt ervoor dat de border binnen de breedte blijft */
 }
 
 footer, footer * {
