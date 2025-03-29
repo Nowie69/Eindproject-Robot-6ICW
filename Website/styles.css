@@ -1,9 +1,8 @@
 html{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
 }
-body {
-    margin-top: 60px; /* Zorgt ervoor dat de inhoud niet achter de navbar komt te staan */
-}
+
 
 nav {
     background-color: #01303f; /* Achtergrondkleur van de navigatiebalk */
@@ -11,7 +10,6 @@ nav {
     display: flex; /* Gebruik flexbox voor uitlijning */
     justify-content: center; /* Centreer de items horizontaal */
     align-items: center; /* Centreer de items verticaal */
-    position: fixed; /* Zorgt ervoor dat de navbar vast blijft staan */
     top: 0; /* Plaatst de navbar aan de bovenkant van de pagina */
     left: 0; /* Zorgt ervoor dat de navbar aan de linkerkant van de pagina zit */
     width: 100%; /* Zorgt ervoor dat de navbar de volledige breedte van het scherm gebruikt */
@@ -62,9 +60,10 @@ h2 {
     color: #02a9f7; /* Kleur van de tussentitel uit het kleurenpalet */
     font-size: 24px; /* Grootte van de tussentitel */
     font-weight: bold; /* Maak de tekst vetgedrukt */
-    margin: 20px 0; /* Ruimte boven en onder de tussentitel */
+    margin: 1em 0; /* Ruimte boven en onder de tussentitel */
     padding-bottom: 5px; /* Onderste padding voor extra ruimte */
     border-bottom: 2px solid #02a9f7; /* Onderlijn om de titel te accentueren */
+    max-width: 75%;
 }
 
 /* Opmaak voor paragrafen */
@@ -72,24 +71,30 @@ p {
     color: #000000; /* Zwarte kleur voor de paragraaftekst voor maximale leesbaarheid */
     font-size: 16px; /* Grootte van de paragraaftekst */
     line-height: 1.6; /* Regelafstand voor betere leesbaarheid */
-    margin: 10px 0; /* Ruimte boven en onder de paragrafen */
+    margin: 1em 0; /* Ruimte boven en onder de paragrafen */
 }
 
 .container {
     display: flex;
-    justify-content: center; /* Horizontaal centreren van de inhoud */
+    align-items: center;
+    max-width: 90%;
+    justify-content: center;
+    margin: 0 auto; /* Zorgt ervoor dat de container in het midden staat */
 }
 
 .content {
     display: flex;
     align-items: center;
-    gap: 20px; /* Ruimte tussen afbeelding en tekst */
-
-    margin: 20px 0; /* Ruimte boven en onder */
-    padding: 10px; /* Extra binnenruimte voor betere uitstraling */
+    gap: 2em; /* Ruimte tussen afbeelding en tekst */
+    justify-content: flex-start; /* Voorkomt dubbele centrering */
+    flex-wrap: wrap; /* Zorgt ervoor dat inhoud breekt op kleinere schermen */
+    
+    margin: 2em 0; /* Ruimte boven en onder */
+    padding: 1em; /* Extra binnenruimte voor betere uitstraling */
     background-color: rgba(1, 48, 63, 0.1); /* Zachte achtergrondkleur voor subtiele nadruk */
-    border-radius: 5px; /* Afgeronde hoeken voor een zachtere uitstraling */
+    border-radius: 1em; /* Afgeronde hoeken voor een zachtere uitstraling */
 }
+
 
 .image {
     max-width: 40%; /* Pas dit aan naar wens */
@@ -97,25 +102,25 @@ p {
 }
 
 .text {
-    max-width: 60%;
+    max-width: 69%;
 }
 
 /* Opmaak voor de welkomtekst */
 .voorwoord {
     color: #02577a; /* Donkerblauwe kleur uit het kleurenpalet */
-    font-size: 20px; /* Iets grotere tekst voor nadruk */
+    font-size: 1.3em; /* Iets grotere tekst voor nadruk */
     font-weight: bold; /* Maak de tekst vetgedrukt */
     text-align: center; /* Centreer de tekst binnen het kader */
-    margin: 20px 0; /* Ruimte boven en onder de welkomtekst */
-    padding: 10px; /* Extra binnenruimte voor betere uitstraling */
+    margin: 2em 0; /* Ruimte boven en onder de welkomtekst */
+    padding: 1em; /* Extra binnenruimte voor betere uitstraling */
     background-color: rgba(1, 48, 63, 0.1); /* Zachte achtergrondkleur voor subtiele nadruk */
-    border-radius: 5px; /* Afgeronde hoeken voor een zachtere uitstraling */
+    border-radius: 1em; /* Afgeronde hoeken voor een zachtere uitstraling */
 }
 
 table {
     width: fit-content;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 2em 0;
     font-size: 18px;
     text-align: left;
 }
@@ -139,12 +144,11 @@ tbody tr:nth-child(even) {
 
 footer{
     background-color: #01303f; /* Achtergrondkleur van de navigatiebalk */
-    padding: 10px 20px; /* Binnenruimte rondom de inhoud van de navigatiebalk */
+    padding: 1em 2em; /* Binnenruimte rondom de inhoud van de navigatiebalk */
     width: 100%;
     display: flex; /* Gebruik flexbox voor uitlijning */
     justify-content: center; /* Centreer de items horizontaal */
     align-items: center; /* Centreer de items verticaal */
-    border: 2px solid black;
     box-sizing: border-box; /* Zorgt ervoor dat de border binnen de breedte blijft */
 }
 

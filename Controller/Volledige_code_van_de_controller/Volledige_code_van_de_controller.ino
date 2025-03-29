@@ -1,5 +1,5 @@
-#include "WiFi.h" //Bibliotheek nodig voor de wifi.
-#include <PubSubClient.h> //bibliotheek nodig voor MQTT.
+#include "WiFi.h"
+#include <PubSubClient.h>
 // In de library manager moet PubSubClient geïnstalleerd zijn.
 
 //duidelijke namen geven aant de pinnen
@@ -21,20 +21,28 @@ void afstandsbediening();
 void initINPUTS();
 void readINPUTS();
 
-//Wifi instellingen
-const char* ssid = "ICW";           //SSID van het te gebruiken wifi-netwerk.
-const char* paswoord = "ICW6_ICW6"; //Paswoord van het te gebruiken wifi-netwerk
-WiFiClient WiFiClient1;             //Een object wifiClient1 van de klasse wifiClient.
 
-//Instellingen MQTT-broker
-const char* mqttBroker = "broker.hivemq.com";     // De te gebruiken MQTT-broker.
-const char* mqttClientName = "Robot_Wout_Noah ";  //Naam van de MQTT-client
+
+
+
+// WiFi instellingen
+const char* ssid = "ICW";
+const char* paswoord = "ICW6_ICW6";
+WiFiClient WiFiClient1;
+
+// MQTT instellingen
+const char* mqttBroker = "192.168.0.245";
+const char* mqttClientName = "wout";
 const char* PubRichting = "Robot/Richting";       //Naam van de topic waarop data verstuurd wordt (publish).
 const char* PubDraaien = "Robot/Draaien";         //Naam van de topic waarop data verstuurd wordt (publish).
 const char* PubSnelheid = "Robot/Snelheid";       //Naam van de topic waarop data verstuurd wordt (publish).
-const char* mqttPwd = "mqtt paswoord";            //Paswoord van de MQTT-broker.
-const char* clientID = "username0001";            //Client id usernamen+0001
+const char* mqttPwd = "Test";
+const char* clientID = "Test";
 PubSubClient mqttClient1(WiFiClient1);
+
+
+
+
 
 //variabelen van de joysticks
 int intWaardeXL;
@@ -103,26 +111,17 @@ void loop()
 }
 
 // Verbinding maken met de mosquitto broker
-void mqttConnect()
-{
-  while (!mqttClient1.connected())
-  {
-    Serial.print("Probeer te verbinden met MQTT-broker...");
-    if (mqttClient1.connect(mqttClientName))
-    {
-      // Als de microcontroller verbonden is word er een bericht gestuurd naar de MQTT-broker en seriële monitor 
-      Serial.println("Verbonden");
-      mqttClient1.publish("Hallo", mqttClientName);
+void mqttConnect() {
+    while (!mqttClient1.connected()) {
+        Serial.print("Probeer te verbinden met MQTT-broker...");
+        if (mqttClient1.connect(mqttClientName, clientID, mqttPwd)) {
+            Serial.println(" Verbonden!");
+        } else {
+            Serial.print(" Mislukt, status: ");
+            Serial.println(mqttClient1.state());
+            delay(5000);
+        }
     }
-    else
-    {
-      // Niet verbonden wordt er een een bericht gestuurd in de seriële monitor
-      Serial.print("Mislukt, rc=");
-      Serial.print(mqttClient1.state());
-      Serial.println(" Probeer opnieuw binnen 5 seconden");
-      delay(5000);
-    }
-  }
 }
 
 void afstandsbediening()

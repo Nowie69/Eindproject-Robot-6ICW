@@ -1,0 +1,295 @@
+[
+    {
+        "id": "bd45c9a2edd67191",
+        "type": "tab",
+        "label": "Code op robot",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c624e673565586b7",
+        "type": "mqtt in",
+        "z": "bd45c9a2edd67191",
+        "name": "Robot/Richting",
+        "topic": "Robot/Richting",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "8ef1affebb8c4127",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "e6caf03f2ce3578e"
+            ]
+        ]
+    },
+    {
+        "id": "e6caf03f2ce3578e",
+        "type": "function",
+        "z": "bd45c9a2edd67191",
+        "name": "function 1",
+        "func": "let richting = msg.payload;\n\nif(richting == \"Rij vooruit\")\n{\n    return[\n            {payload: true}, {payload: true}, {payload: true}, {payload: true}, \n            { payload: true }, { payload: true }, { payload: true }, {payload: true},\n            { payload: 100 }, { payload: 100 }, { payload: 100 }, { payload: 100 }, \n        ]\n}\nelse if(richting == \"Rij achteruit\")\n{\n    return [\n            { payload: true }, { payload: true }, { payload: true }, { payload: true },\n            { payload: false }, { payload: false }, { payload: false }, { payload: false },\n            { payload: 0 }, { payload: 0 }, { payload: 0 }, { payload: 0 },\n        ]\n}",
+        "outputs": 12,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "56fe60dc6f5d53fd"
+            ],
+            [
+                "b46b27aedd1ee83b"
+            ],
+            [
+                "d48fee6e2681beb1"
+            ],
+            [
+                "78cef94ac2d08f98"
+            ],
+            [
+                "dedb94c576eadf88"
+            ],
+            [
+                "c7dab57897683595"
+            ],
+            [
+                "f8a37b38db2d6efe"
+            ],
+            [
+                "fed409503aba69bf"
+            ],
+            [
+                "86072b8991cb9f10"
+            ],
+            [
+                "f73ebeb692cd80e8"
+            ],
+            [
+                "5167357ab85633a5"
+            ],
+            [
+                "3f5843ad592f01cb"
+            ]
+        ]
+    },
+    {
+        "id": "56fe60dc6f5d53fd",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 01 - pin 31 - enable linksvoor",
+        "pin": "6",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 830,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b46b27aedd1ee83b",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 02 - pin 37 - enable rechtsvoor",
+        "pin": "26",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 840,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f73ebeb692cd80e8",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 06 - pin 33 - PWM rechtsvoor",
+        "pin": "13",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "pwm",
+        "bcm": true,
+        "x": 820,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5167357ab85633a5",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 07 - pin 38 - PWM linksachter",
+        "pin": "20",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "pwm",
+        "bcm": true,
+        "x": 820,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "3f5843ad592f01cb",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 08 - pin 32 - PWM rechtsachter",
+        "pin": "12",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "pwm",
+        "bcm": true,
+        "x": 830,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d48fee6e2681beb1",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 03 - pin 36 - enable linksachter",
+        "pin": "16",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 840,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "78cef94ac2d08f98",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 04 - pin 18 - enable rechtsachter",
+        "pin": "24",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 840,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "86072b8991cb9f10",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 05 - pin 29 - PWM linksvoor ",
+        "pin": "5",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "pwm",
+        "bcm": true,
+        "x": 820,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "dedb94c576eadf88",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 09 - pin 15 - richting linksvoor",
+        "pin": "22",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c7dab57897683595",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 10 - pin 35 - richting rechtsvoor",
+        "pin": "19",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 840,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f8a37b38db2d6efe",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 11 - pin 40 - richting linksachter",
+        "pin": "21",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 840,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "fed409503aba69bf",
+        "type": "rpi-gpio out",
+        "z": "bd45c9a2edd67191",
+        "name": "output 12 - pin 22 - richting rechtsachter",
+        "pin": "25",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 840,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8ef1affebb8c4127",
+        "type": "mqtt-broker",
+        "name": "Mosquittto",
+        "broker": "192.168.0.245",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
