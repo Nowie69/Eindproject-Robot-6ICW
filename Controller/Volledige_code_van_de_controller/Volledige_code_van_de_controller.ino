@@ -56,8 +56,6 @@ int intAnalogSnelheid;
 
 void setup()
 {
-  Serial.begin(115200);                     //Instellen serieële communicatie.
-
   initWiFi();                               //Instellen van de wifi.
   mqttClient1.setServer(mqttBroker, 1883);  //Instellen van de MQTT broker.
   initINPUTS();                             //de inputs instellen als input
@@ -66,22 +64,12 @@ void setup()
 void initWiFi()
 {
   WiFi.begin(ssid,paswoord);// Verbinding maken met het draadloze netwerk, met het meegegeven SSID en paswoord.
-  Serial.println("Verbindt met WiFi ..");
   while (WiFi.status() != WL_CONNECTED)//Controle of er verbinding is.
   {
-    Serial.print('.');//Zolang er geen verbinding is print een puntje.
     delay(500);// Een halve seconde wachten.
   }
   // Verbonden met wifi. De nodige info naar de serial monitor sturen.
-  Serial.print("Verbonden met");
-  Serial.println(ssid);
-  Serial.print("Het gekregen IP-adres van het netwerk is: ");
-  Serial.println(WiFi.localIP());//Print het gekregen IP-adres.
-  Serial.print("RSSI: ");
-  Serial.println(WiFi.RSSI());//Geef de signaalsterkte met het wifi netwerk.
-  WiFi.setHostname("ESP32 Node Tom"); //Instellen van de hostname
-  Serial.print("Het MAC-adres is: ");
-  Serial.println(WiFi.macAddress());
+  WiFi.setHostname("ESP32 Node Wout"); //Instellen van de hostname
 }
 
 //de inputs instellen als input
@@ -113,12 +101,9 @@ void loop()
 // Verbinding maken met de mosquitto broker
 void mqttConnect() {
     while (!mqttClient1.connected()) {
-        Serial.print("Probeer te verbinden met MQTT-broker...");
-        if (mqttClient1.connect(mqttClientName, clientID, mqttPwd)) {
-            Serial.println(" Verbonden!");
+        if (mqttClient1.connect(mqttClientName, clientID, mqttPwd))
+        {
         } else {
-            Serial.print(" Mislukt, status: ");
-            Serial.println(mqttClient1.state());
             delay(5000);
         }
     }
@@ -141,7 +126,6 @@ void afstandsbediening()
 
   //Snelheid van de robot inlezen
   int intPWMPercent = map(intAnalogSnelheid, 0, 4095, 0, 100);
-  Serial.println("sneheid: " + intPWMPercent);
   String strPWMPercent = String(intPWMPercent);
   mqttClient1.publish(PubSnelheid, strPWMPercent.c_str());
 
@@ -180,7 +164,6 @@ void afstandsbediening()
     blLinks = false;
     blVooruit = false;
 
-    Serial.println("Rij LinksVooruit");
     mqttClient1.publish(PubRichting, "Rij LinksVooruit");
   }
   if((blVooruit == true)&&(blRechts == true))
@@ -191,7 +174,6 @@ void afstandsbediening()
     blRechts = false;
     blVooruit = false;
 
-    Serial.println("Rij RechtsVooruit");
     mqttClient1.publish(PubRichting, "Rij RechtsVooruit");
   }
   if((blAchteruit == true)&&(blLinks == true))
@@ -202,7 +184,6 @@ void afstandsbediening()
     blLinks = false;
     blAchteruit = false;
 
-    Serial.println("Rij LinksAchteruit");
     mqttClient1.publish(PubRichting, "Rij LinksAchteruit");
   }
   if((blAchteruit == true)&&(blRechts == true))
@@ -213,18 +194,15 @@ void afstandsbediening()
     blRechts = false;
     blAchteruit = false;
 
-    Serial.println("Rij RechtsAchteruit");
     mqttClient1.publish(PubRichting, "Rij RechtsAchteruit");
   }
 
   if(blLinks == true)
   {
-    Serial.println("Rij naar links");
     mqttClient1.publish(PubRichting, "Rij links");
   }
   else if(blRechts == true)
   {
-    Serial.println("Rij naar rechts");
     mqttClient1.publish(PubRichting, "Rij rechts");
   }
   if(blVooruit == true)
@@ -234,27 +212,23 @@ void afstandsbediening()
   }
   else if(blAchteruit == true)
   {
-    Serial.println("Rij achteruit");
     mqttClient1.publish(PubRichting, "Rij achteruit");
   }
   if(blDraaiLinks == true)
   {
-    Serial.println("Draai links");
     mqttClient1.publish(PubDraaien, "Draai links");
   }
   else if(blDraaiRechts == true)
   {
-    Serial.println("Draai rechts");
     mqttClient1.publish(PubDraaien, "Draai rechts");
   }
 
   if((blRechtsAchteruit == false)&&(blLinksAchteruit == false)&&(blRechtsVooruit == false)&&(blLinksVooruit == false)&&(blDraaiRechts == false)&&(blDraaiLinks == false)&&(blAchteruit == false)&&(blVooruit == false)&&(blRechts == false)&&(blLinks == false))
   {
-    Serial.println("STOP");
     mqttClient1.publish(PubRichting, "STOP");
     mqttClient1.publish(PubDraaien, "STOP");
   }
-  delay(1000);
+  delay(200);
 }
 
 void readINPUTS()
