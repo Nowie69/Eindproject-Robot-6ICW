@@ -94,19 +94,23 @@ void loop()
   //Dit moet reggelmatig worden aangeroepen om de client in staat te stellen
   // inkomende berichten te verwerken en de verbinding met de server te behouden.
   mqttClient1.loop();
-  
   afstandsbediening();
 }
 
 // Verbinding maken met de mosquitto broker
-void mqttConnect() {
-    while (!mqttClient1.connected()) {
-        if (mqttClient1.connect(mqttClientName, clientID, mqttPwd))
-        {
-        } else {
-            delay(5000);
-        }
+void mqttConnect()
+{
+  while (!mqttClient1.connected())
+  {
+    if (mqttClient1.connect(mqttClientName, clientID, mqttPwd))
+    {
+
+    } 
+    else
+    {
+      delay(5000);
     }
+  }
 }
 
 void afstandsbediening()
@@ -132,27 +136,27 @@ void afstandsbediening()
   //Kijken naar welke kant de robot moet rijden of draaien
   if(intWaardeXL < DeadzoneMIN)
   {
-    blLinks = true;
+    blAchteruit = true;
   }
   else if(intWaardeXL > DeadzoneMAX)
   {
-    blRechts = true;
+    blVooruit = true;
   }
   if(intWaardeYL < DeadzoneMIN)
   {
-    blAchteruit = true;
+    blRechts = true;
   }
   else if(intWaardeYL > DeadzoneMAX)
   {
-    blVooruit = true;
+    blLinks = true;
   }
-  if(intWaardeXR < DeadzoneMIN)
-  {
-    blDraaiLinks = true;
-  }
-  else if(intWaardeXR > DeadzoneMAX)
+  if(intWaardeYR < DeadzoneMIN)
   {
     blDraaiRechts = true;
+  }
+  else if(intWaardeYR > DeadzoneMAX)
+  {
+    blDraaiLinks = true;
   }
 
   // Bij elke rijrichting een bericht naar de MQTT-broker versturen om te zeggen welke kant de robot gaat
