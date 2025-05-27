@@ -232,7 +232,7 @@ void afstandsbediening()
     mqttClient1.publish(PubRichting, "STOP");
     mqttClient1.publish(PubDraaien, "STOP");
   }
-  delay(200);
+  delay(100);
 }
 
 void readINPUTS()
