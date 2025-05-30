@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <title>Mecanum Robot</title>
+    </head>
+    <body>
+        <!-- Dit is een commentaar, Hier komt de body -->
+         <header>
+            <div class="navbar">
+                <a href="index.html">Home</a>           <!--Hier komt de Algemene uitleg-->
+                <a href="hardware.html">Hardware</a>    <!--Hier komt de Hardware-->
+                <a href="software.html">Software</a>    <!--Hier komt de Software-->
+                <a href="overOns.html">Over Ons</a>     <!--Hier komt info over ons-->
+            </div>
+            <div class="bannerBox">
+                <img class="banner" src="./images/bannerRobot.jpg" alt="bannerRobot">
+                <div class="title">Hardware</div>
+            </div>
+         </header>
+         <main>
+            <h1>Uitleg van de hardware</h1>
+
+            <div class="ankerLink">
+                <a href="#DeRobot">De Robot</a><br>
+                <a href="#DeController">De Controller</a><br>
+                <a href="#DeLaptop">De Laptop</a><br>
+                <a href="#DeRouter">De Router</a><br>        
+            </div>
+
+            <div class="kader" id="DeRobot">
+                <div class="content">
+                    <img src="./images/blokschema frame.png" alt="blokschema frame" height="300">
+                    <div class="text">
+                        <h2>De robot</h2>
+                        <p>
+                            De robot bestaat uit het chassis met de 4 DC-motoren en mecanum wielen, de powerbank, de Raspberry Pi en de H-bruggen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/chassis.png" alt="chassis">
+                    <div class="text">
+                        <h3>Chassis met DC-motoren en mecanum wielen:</h3>
+                        <p>
+                            <b>Het frame </b>is gemaakt uit aluminium en daar is alles op bevestigd. Er zijn veel bevestigingspunten op het frame, zo is het gemakkelijk om alle elementen er stevig op te monteren.
+                        </p>
+                        <p>
+                            <b>De DC-motoren </b>werken op een spanning tussen 3 en 12 volt, dat is ideaal want de Raspberry Pi kan een spanning leveren van 3,3V en 5V. Wij hebben er voor gekozen om de motoren met 5V te voeden.
+                        </p>
+                        <p>
+                            <b>Mecanum wielen </b>zijn wielen met schuine rollen (meestal 45°) rondom de omtrek, waarmee voertuigen omnidirectioneel kunnen bewegen. Door de draairichting en snelheid van elk wiel apart aan te sturen, ontstaat voorwaartse, zijwaartse, diagonale of roterende beweging zonder de wielen te pivoteren.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/powerbank.png" alt="powerbank">
+                    <div class="text">
+                        <h3>De powerbank:</h3>
+                        <p>De powerbank zit bevestigd op het frame, deze geeft de Raspberry Pi zijn voeding.</p>
+                        <p>De Raspberry Pi heeft 5 volt nodig met 3A-5A stroom (afhankelijk van de belasting van de Raspberry). de powerbank levert maximum 20W op 5V.</p>
+                        <p>I=P/U=20W/5V=4A</p>
+                        <p>Tijdens we de robot aan het testen waren, hebben we de motoren gevoed met een regelbare voeding. Deze gaf aan hoe hoog de stroom was, die waarde was toen maximum 2,5A. De powerbank levert dus ook voldoende voeding aan de Raspberry Pi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/RPI.png" alt="Raspberry Pi">
+                    <div class="text">
+                        <h3>De Raspberry Pi:</h3>
+                        <p>Wij gebruiken de Raspberry Pi 4, het is een kleine computer die we met het WiFi-netwerk verbinden, zoals alle apparaten. Er draaien 2 programma’s op; node-red, waar alle MQTT-berichten worden verwerkt en zo de pinnen op de Raspberry Pi aansturen. Het tweede programma dat er op draait is mosquitto, een MQTT-broker dat gesubscribed is op de topics waar wij onze data naar sturen. Mosquitto ontvangt de berichten van publishers en stuurt ze door naar alle geïnteresseerde subscribers.</p>
+                        <p>Op node-red hebben wij de topics gesubscribed, en deze zal node-red nadien ontvangen en verwerken. Het loopt door een JavaScript code om te weten welke pinnen er moeten aangestuurd worden voor de H-bruggen.</p>
+                        <p>Omdat de Raspberry Pi verbonden is met hetzelfde WiFi-netwerk als de controller, kunnen ze op deze manier communiceren. De microcontroller maakt verbinding met het IP-adres van de Raspberry Pi (bijv. 192.168.1.50) via poort 1883 en stuurt berichten naar een topic.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/voorbeeld aansluitingen 1 H-brug.png" alt="vb 1 H-brug" width="500">
+                    <div class="text">
+                        <h3>De H-bruggen:</h3>
+                        <p>We maken gebruik van 2 H-bruggen (2 x L293D). Op elke H-brug zitten 2 DC-motoren aangesloten. Dit was voor ons de beste optie, we kunnen hiermee de motoren enablen/disablen, de richting bepalen en ook de snelheid door middel van een PWM signaal (de pin heel snel na elkaar hoog en laag maken, hoe langer het hoog is en hoe korter laag, hoe sneller de motor draait).</p>
+
+                    </div>
+                    <img src="./images/L293D.jpg" alt="L293D" height="200">
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/schema H-bruggen.png" alt="schema H-bruggen" width="700">
+                    <div class="text">
+                        <h3>Schema van de H-bruggen aan de Raspberry Pi:</h3>
+                        <p>Door de juiste pinnen hoog/laag/PWM in te stellen kan je de robot in elke horizontale richting laten rijden.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader" id="DeController">
+                <div class="content">
+                    <img src="./images/blokschema controller.png" alt="blokschema controller" height="350">
+                    <div class="text">
+                        <h2>De controller</h2>
+                        <p>
+                            De controller bestaat uit een ESP32 feather (Microcontroller), 2 joysticks, een potentiometer, een batterij en een dubbelpolige schakelaar.
+                        </p>
+                    </div>
+                    <img src="./images/controller.png" alt="controller" width="400">
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/ESP32.png" alt="ESP32" height="300">
+                    <div class="text">
+                        <h3>De ESP32 Feather:</h3>
+                        <p>We maken gebruik van de ESP32 Feather van Adafruit, omdat deze microcontroler kan verbinden met WiFi, genoeg analoge ingangen heeft voor de joysticks en potentiometer, digitale ingangen voor de knop op de joysticks, deze kan verbinden met batterij, deze zeer snel en eenvoudig te programmeren is.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/joystick.png" alt="joystick" width="400">
+                    <div class="text">
+                        <h3>De joysticks:</h3>
+                        <p>Voor de joysticks gebruiken we de analoge joysticks, ook van Adafruit. In elke joystick zitten 2 “potentiometers” van 10k Ohm, één voor de x-as en één voor de y-as. Elke joystick heeft 5 aansluitingen; Vcc voor de voeding (3,3V van de MC (Micro-Controller)), analoge uitgang voor de x-as, analoge uitgang voor de y-as, een digitale uitgang voor de knop van de joystick en een Ground.</p>
+                        <p>De analoge uitgangen van de joysticks worden aangesloten op de analoge ingangen van de MC, de analoge ingang zet de analoge spanning om in een waarde tussen 0 en 4095 (12 bit), en zo weet je de positie in elke as. De digitale uitgangen van de joysticks worden aangesloten op een digitale ingang van de MC, deze leest een hoge of lage waarde (ingedrukt of niet).</p>
+                        <p>De joysticks hebben ook 4 punten om deze makkelijk te bevestigen met afstandsbussen, bouten en moeren.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/potMeter.png" alt="potentiometer" height="200">
+                    <div class="text">
+                        <h3>De potentiometer:</h3>
+                        <p>We maken gebruik van een simpele potentiometer van 10k Ohm. Deze heeft 3 aansluitingen; Vcc (3,3V van de MC), een loper om aan te sluiten op een analoge ingang van de microcontroller, en een Ground.</p>
+                        <p>De MC zet de analoge spanning tussen 0 en 3,3V om in een waarde tussen 0 en 4095 (12 bit), en zo weet je hoe ver de potentiometer is gedraaid.</p>
+                    </div>
+                </div>
+            </div>
+
+         </main>
+         <footer>
+            <p>&copy; 2025 Mecanum Robot. Alle rechten voorbehouden.</p>
+         </footer>
+        <script src="scripts.js"></script>
+    </body>
+</html>

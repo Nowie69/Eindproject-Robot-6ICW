@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    background-color: #333;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+.banner {
+    max-width: 100%;
+    overflow-x: hidden;
+    filter: brightness(50%);
+}
+
+.bannerBox {
+    position: relative;
+    display: inline-block;
+}
+
+.bannerBox img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.voorwoord {
+    max-width: 75%;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #222;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 40px 0 20px;
+    position: relative;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 30px 0 15px;
+    position: relative;
+    padding-left: 20px;
+    text-decoration: underline;
+}
+
+p {
+    font-size: larger;
+}
+
+.kader {
+    display: flex;
+    align-items: center;
+    max-width: 90%;
+    justify-content: center;
+    margin: 0 auto; /* Zorgt ervoor dat de container in het midden staat */
+}
+
+.kader .content {
+    display: flex;
+    align-items: center;
+    gap: 2em; /* Ruimte tussen afbeelding en tekst */
+    justify-content: flex-start; /* Voorkomt dubbele centrering */
+    flex-wrap: wrap; /* Zorgt ervoor dat inhoud breekt op kleinere schermen */
+    
+    margin: 2em 0; /* Ruimte boven en onder */
+    padding: 1em; /* Extra binnenruimte voor betere uitstraling */
+    background-color: rgba(1, 48, 63, 0.1); /* Zachte achtergrondkleur voor subtiele nadruk */
+    border-radius: 1em; /* Afgeronde hoeken voor een zachtere uitstraling */
+}
+
+.kader .content .image {
+    flex: 0 0 auto; /* Zorgt ervoor dat de afbeelding zijn grootte behoudt */
+}
+
+.kader .content .text {
+    flex: 1; /* Laat tekst zoveel ruimte nemen als nodig */
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration: overline;
+}
+
+footer {
+    display: flex;
+    background-color: #333;
+    overflow: hidden;
+    justify-content: center;
+    color: white;
+}
+
+.ankerLink {
+    text-align: center;
+    margin: 2em 0;
+    font-size: larger;
+}

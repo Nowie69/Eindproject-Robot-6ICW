@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <title>Mecanum Robot</title>
+    </head>
+    <body>
+        <!-- Dit is een commentaar, Hier komt de body -->
+         <header>
+            <div class="navbar">
+                <a href="index.html">Home</a>           <!--Hier komt de Algemene uitleg-->
+                <a href="hardware.html">Hardware</a>    <!--Hier komt de Hardware-->
+                <a href="software.html">Software</a>    <!--Hier komt de Software-->
+                <a href="overOns.html">Over Ons</a>     <!--Hier komt info over ons-->
+                <a href="https://github.com/Nowie69/Eindproject-Robot-6ICW" target="_blank">GitHub project</a>
+            </div>
+            <div class="bannerBox">
+                <img class="banner" src="./images/bannerRobot.jpg" alt="bannerRobot">
+                <div class="title">Robot Met Mecanum Wielen</div>
+            </div>
+         </header>
+         <main>
+            <br><br>
+            <p class="voorwoord">
+                Voor ons eindproject hebben wij, Wout Vandevelde en Noah Vermaerke, 
+                een unieke robot ontwikkeld met mecanum wielen. 
+                Dankzij deze wielen kan de robot soepel in alle richtingen bewegen, 
+                inclusief zijwaarts. 
+                De besturing gebeurt via een zelfgemaakte afstandsbediening die communiceert met de 
+                robot via WiFi. Dit project combineert mechanische innovatie en draadloze technologie.
+            </p>
+            <h1>Globale uitleg van het project</h1>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/blokschema.png" alt="blokschema">
+                    <div class="text">
+                        <h2>Globale werking</h2>
+                        <p>Het project omvat een robot met een zelfgemaakte afstandsbediening.</p>
+                        <p>Het blokschema is opgebouwd uit:</p>
+                        <li>Het robotframe met de Raspberry Pi (mini-computer), een powerbank</li>
+                        <li>De router voor het draadloos netwerk</li>
+                        <li>Het dashboard (voor de bediening van de robot op de laptop)</li>
+                        <li>De Afstandsbediening met joysticks, potentiometer, batterij en een schakelaar</li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/blokschema frame.png" alt="blokschema frame">
+                    <div class="text">
+                        <h3>Het Robotframe:</h3>
+                        <p>Het robotframe bestaat uit:</p>
+                        <li>Het frame</li>
+                        <li>4 DC-motoren (elektrische kleine motoren die de wielen laten draaien)</li>
+                        <li>4 mecanum wheels (wielen die alle richtingen op kunnen)</li>
+                        <li>Een powerbank en een Raspberry Pi (een minicomputer)</li>
+
+                        <p>De Raspberry Pi krijgt signalen door van de afstandsbediening 
+                            via het draadloos netwerk (Wi-Fi) en stuurt zo de DC-motoren aan om de 
+                            mecanum wielen te laten draaien en zo de 
+                            robot de juiste richting te laten rijden.
+                        </p>
+                        <p>
+                            De powerbank is makkelijk op te laden met een USB-kabeltje, 
+                            en als je de robot uit wil schakelen, trek je gewoon de kabel uit de powerbank.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/blokschema controller.png" alt="blokschema controller">
+                    <div class="text">
+                        <h3>De Controller (Afstandsbediening):</h3>
+                        <p>
+                            De controller bestaat uit een micro-controller (de ESP32 Feather), 
+                            2 joysticks, een potentiometer, een batterij en een aan- en uit schakelaar.
+                        </p>
+                        <p>
+                            Met de 1ste joystick stuur je de robot naar voor en achter, links en rechts. Met de 2de joystick bepaal je hoe de robot rond zijn as draait. De micro-controller ontvangt wat de positie van de joysticks zijn, verwerkt deze en stuurt deze door via WiFi naar de Raspberry Pi op de robot.
+                        </p>
+                        <p>
+                            De batterij is aangesloten op de grote connector van de micro-controller en voorziet deze van spanning. Als de batterij leeg is, dan moet de micro-controller aangesloten worden op de USB-poort waardoor de batterij kan opladen. Als de micro-controller niet gebruikt wordt dan kan de schakelaar gebruikt worden om zo de micro-controller uit te zetten, zodat de energie van de batterij niet wordt verspild.
+                        </p>
+                        <p>
+                            De robot kan niet alleen aangestuurd worden met de controller, maar ook met de knoppen op het dashboard. Dit wordt verder uitgelegd.
+                        </p>
+
+                        <h3>Besturingen met de controller</h3>
+                        <p><b>Joystick 1 (links):</b></p>
+                        <p>De robot gaat dezelfde richting uit als de joystick (zonder te draaien).</p>
+                        <p><b>Joystick 2 (rechts):</b></p>
+                        <p>De robot draait links om zijn as als je de joystick naar links duwt, hetzelfde om naar rechts te draaien.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/blokschema dashboard.png" alt="blokschema dashboard" width="500px">
+                    <div class="text">
+                        <h3>Het dashboard:</h3>
+                        <p>
+                            Het dashboard is een soort website/app waarop men bepaalde aansturingen kan doen. Je kan op het dashboard de robot vooruit, achteruit, links en rechts laten rijden, en ook rond zijn as laten draaien. Met de controller kan je dus meer precieze richtingen op gaan met de robot. 
+                        </p>
+                        <p>
+                            Door op de pijltjes te klikken - of op het draai icoontje te klikken - en de slider van de maximum snelheid te verhogen kan je de robot laten rijden. Als je de robot wilt laten stoppen druk je op het vierkante knopje in het midden, of zet je de slider op 0. 
+                        </p>
+                        <p>
+                            Als je het dashboard wilt gebruiken in plaats van de controller, zet je de controller gewoon uit vie da schakelaar op de achterkant.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                        <h3>De router:</h3>
+                        <p>
+                            De router zorgt voor een draadloos netwerk dat gebruikt wordt voor de communicatie van de robot en de tablet, smartphone of PC waarop het dashboard, de Raspberry Pi en de microcontroller draait.
+                        </p>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                        <h3>De Raspberry Pi (mini-computer):</h3>
+                        <p>
+                            De Raspberry Pi is een server waarop er software (=Node-Red) actief is zodat een smartphone, tablet of PC het dashboard kan zien. Op de Raspberry Pi draait ook een Mosquitto broker die nodig is voor de communicatie tussen de robot en NodeRed.
+                        </p>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                        <h3>Node-red:</h3>
+                        <p>
+                            Node-red is de software die op de Rapsberry Pi draait. Het dashboard is er ook mee gemaakt. En kan je gebruiken op elk toestel verbonden met hetzelfde WiFi-netwerk.
+                        </p>
+                        <p>
+                            Het verstuurt ook de gegevens van op het dashboard via een mosquitto broker naar de Raspberry Pi via het draadloos netwerk.
+                        </p>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                        <h3>Mosquitto broker:</h3>
+                        <p>
+                            Mosquitto broker is een software waar Node-red, de Raspberry Pi en de microcontroller gebruik van maakt om te communiceren met MQTT-berichten via het draadloos netwerk.
+                        </p>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                        <h3>Meer info:</h3>
+                        <p>
+                            Op de pagina's van <a href="hardware.html">Hardware</a> en <a href="software.html">Software</a> kan je een uitgebreidere en meer gedetailleerde uitleg vinden.
+                        </p>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/blokschema.png" alt="het blokschema">
+                </div>
+            </div>
+         </main>
+         <footer>
+            <p>&copy; 2025 Mecanum Robot. Alle rechten voorbehouden.</p>
+         </footer>
+        <script src="scripts.js"></script>
+    </body>
+</html>
