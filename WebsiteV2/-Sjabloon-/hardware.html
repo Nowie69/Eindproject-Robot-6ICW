@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./styles.css">
-        <title>Mecanum Robot</title>
+        <title>Mecanum Robot Hardware</title>
     </head>
     <body>
         <!-- Dit is een commentaar, Hier komt de body -->
@@ -15,6 +15,7 @@
                 <a href="hardware.html">Hardware</a>    <!--Hier komt de Hardware-->
                 <a href="software.html">Software</a>    <!--Hier komt de Software-->
                 <a href="overOns.html">Over Ons</a>     <!--Hier komt info over ons-->
+                <a href="https://github.com/Nowie69/Eindproject-Robot-6ICW" target="_blank">GitHub project</a>
             </div>
             <div class="bannerBox">
                 <img class="banner" src="./images/bannerRobot.jpg" alt="bannerRobot">
@@ -150,6 +151,65 @@
                         <h3>De potentiometer:</h3>
                         <p>We maken gebruik van een simpele potentiometer van 10k Ohm. Deze heeft 3 aansluitingen; Vcc (3,3V van de MC), een loper om aan te sluiten op een analoge ingang van de microcontroller, en een Ground.</p>
                         <p>De MC zet de analoge spanning tussen 0 en 3,3V om in een waarde tussen 0 en 4095 (12 bit), en zo weet je hoe ver de potentiometer is gedraaid.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/batterij.png" alt="batterij" height="250">
+                    <div class="text">
+                        <h3>De batterij:</h3>
+                        <p>De batterij is aangesloten op de JST pinnen op de MC, met daartussen een schakelaar. Als de MC is aangesloten met de USB-poort en de schakelaar is gesloten, kan de batterij opladen. Als je de schakelaar sluit dan geeft de batterij voeding aan de MC, zo kan je de robot besturen zonder kabels.</p>
+                        <p>Het is een batterij van Adafruit, deze levert een spanning van 3,7V en heeft een capaciteit van 500mAh. Ideaal dus voor de MC en zijn componenten.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <img src="./images/schakelaar.png" alt="schakelaar" height="150">
+                    <div class="text">
+                        <h3>De schakelaar:</h3>
+                        <p>De schakelaar staat geschakeld tussen de JST pinnen van de MC en de batterij. De dubbelpolige schakelaar connecteert beide draden van de batterij met de MC, zodat we zeker zijn dat er niks verloren gaat.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader">
+                <div class="content">
+                    <h3>Schema van de controller:</h3>
+                    <img src="./images/schema controller.png" alt="schema controller" height="500">
+                </div>
+            </div>
+
+            <div class="kader" id="DeLaptop">
+                <div class="content">
+                    <img src="./images/blokschema dashboard.png" alt="dashboard" width="400">
+                    <div class="text">
+                        <h2>De laptop</h2>
+                        <p>
+                            We gebruiken een laptop zodat we de robot ook kunnen besturen zonder controller, via een dashboard op node-red. We kunnen ook via MQTT explorer mqtt berichten sturen naar de robot.
+                        </p>
+                        <p>
+                            Er draaien dus 2 programma’s op de laptop; node-red en MQTT explorer. Deze is ook verbonden met hetzelfde WiFi-netwerk als de MC en de Raspberry Pi, om via WiFi te communiceren. De MQTT explorer maakt verbinding met de broker en je kan er MQTT berichten lezen en versturen.
+                        </p>
+                        <p>
+                            We hebben de laptop ook gebruikt om alles te programmeren en om alle schema’s, flowcharts en blokschema’s te maken.
+                        </p>
+                    </div>
+                    <img src="./images/laptop.png" alt="laptop" height="100">
+                </div>
+            </div>
+
+            <div class="kader" id="DeRouter">
+                <div class="content">
+                    <img src="./images/router.png" alt="router" height="200">
+                    <div class="text">
+                        <h2>De router</h2>
+                        <p>
+                            De router zorgt voor het WiFi netwerk waar alle apparaten mee zijn verbonden. Alle berichten en info passeert langst hier.
+                        </p>
                     </div>
                 </div>
             </div>

@@ -35,7 +35,7 @@ body {
 }
 
 .bannerBox img {
-    display: block;
+    display: auto;
     width: 100%;
     height: auto;
 }
@@ -108,7 +108,7 @@ p {
     justify-content: flex-start; /* Voorkomt dubbele centrering */
     flex-wrap: wrap; /* Zorgt ervoor dat inhoud breekt op kleinere schermen */
     
-    margin: 2em 0; /* Ruimte boven en onder */
+    margin: 2em; /* Ruimte boven en onder */
     padding: 1em; /* Extra binnenruimte voor betere uitstraling */
     background-color: rgba(1, 48, 63, 0.1); /* Zachte achtergrondkleur voor subtiele nadruk */
     border-radius: 1em; /* Afgeronde hoeken voor een zachtere uitstraling */
@@ -143,4 +143,36 @@ footer {
     text-align: center;
     margin: 2em 0;
     font-size: larger;
+}
+
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+
+.popup-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.overOns img {
+    border-radius: 50%;
 }

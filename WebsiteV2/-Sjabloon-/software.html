@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <title>Mecanum Robot Software</title>
+    </head>
+    <body>
+        <!-- Dit is een commentaar, Hier komt de body -->
+         <header>
+            <div class="navbar">
+                <a href="index.html">Home</a>           <!--Hier komt de Algemene uitleg-->
+                <a href="hardware.html">Hardware</a>    <!--Hier komt de Hardware-->
+                <a href="software.html">Software</a>    <!--Hier komt de Software-->
+                <a href="overOns.html">Over Ons</a>     <!--Hier komt info over ons-->
+                <a href="https://github.com/Nowie69/Eindproject-Robot-6ICW" target="_blank">GitHub project</a>
+            </div>
+            <div class="bannerBox">
+                <img class="banner" src="./images/bannerRobot.jpg" alt="bannerRobot">
+                <div class="title">Software</div>
+            </div>
+         </header>
+         <main>
+            <h1>Uitleg van de software</h1>
+
+            <div class="ankerLink">
+                <a href="#Flowcharts">Flowcharts</a><br>
+                <a href="#MQTT">MQTT</a><br>
+                <a href="#Node-red">Node-red</a><br>     
+            </div>
+
+            <div class="kader" id="Flowcharts">
+                <div class="content">
+                    <div class="text">
+                        <h2>De flowcharts:</h2>
+                        <h3>Declaraties</h3>
+                        <p>
+                            Hier worden verschillende zaken gedeclareerd die nodig zijn voor het opzetten van een WiFi- en MQTT-gestuurde afstandsbediening met joysticks. Er worden variabelen aangemaakt waar later waardes in kunnen gestoken worden, ook wordt er aan elke pin die we gebruiken een duidelijke naam gegeven.
+                        </p>
+                        <a href="#" onclick="openPopupDecl(); return false;">Klik hier om de declaraties te bekijken</a>
+
+                        <h3>Methodes</h3>
+                        <h4>Sketch:</h4>
+                        <p>
+                            Dit is het hoofdprogramma, van hieruit wordt alles aangeroepen van methodes. Eerst roept deze de methode “Declaraties()” aan, vervolgens zal hij de setup aanroepen en daarna een oneindig aantal  keren de loop methode aanroepen.
+                        </p>
+                        <a href="#" onclick="openPopupSke(); return false;">Klik hier om de sketch te bekijken</a>
+                        <h4>Loop:</h4>
+                        <p>
+                            Deze methode wordt de hele tijd aangeroepen, het zorgt ervoor dat de connectie met MQTT in stand blijft, en daarna roept deze de methode “Afstandsbediening()” aan.
+                        </p>
+                        <a href="#" onclick="openPopupLoop(); return false;">Klik hier om de loop te bekijken</a>
+                        <h4>Setup:</h4>
+                        <p>
+                            Deze methode wordt standaard uitgevoerd na de declaraties. Eerst roept de setup de methode ‘initWifi()’ aan, vervolgens laat hij mqttClient1 verbinden met de mqttBroker op poort 1883, en als laatst roept hij de methode ‘initINPUTS’ aan.
+                        </p>
+                        <a href="#" onclick="openPopupSet(); return false;">Klik hier om de setup te bekijken</a>
+                        <h4>initWifi():</h4>
+                        <p>
+                            Eerst maakt deze methode verbinding met wifi, met de ssid en het wachtwoord. Dan gaat hij zolang er geen verbinding is blijven proberen te verbinden. Als er verbinding is gaat hij de WiFi hostnaam instellen als “ESP32 Node Wout”.
+                        </p>
+                        <a href="#" onclick="openPopupIniWifi(); return false;">Klik hier om initWifi() te bekijken</a>
+                        <h4>initINPUTS():</h4>
+                        <p>
+                            Deze methode gaan alle pinnen die we gebruiken als ingang voor de joysticks intellen als INPUT, en de ingangen die verbonden zijn met de knop op de joysticks, instellen als INPUT met een ingebouwde pullup weerstand, zo moeten we er zelf geen solderen.
+                        </p>
+                        <a href="#" onclick="openPopupIniInp(); return false;">Klik hier om initINPUTS() te bekijken</a>
+                        <h4>mqttConnect():</h4>
+                        <p>
+                            zolang dat ‘mqttClient1’ niet verbonden is met MQTT-broker gaat deze methode proberen te verbinden door de “mqttClientName”, de “clientID” en het “mqttPwd” mee te geven. Als er geen verbinding is zal de MC over 5 seconden opnieuw proberen. Dit gaat zo lang door tot er verbinding is.
+                        </p>
+                        <a href="#" onclick="openPopupmqttCon(); return false;">Klik hier om mqttConnect() te bekijken</a>
+                        <h4>readINPUTS():</h4>
+                        <p>
+                            Deze gaat alle INPUTS lezen en hun waarde in de juiste variabelen plaatsen.
+                        </p>
+                        <a href="#" onclick="openPopupReadINP(); return false;">Klik hier om readINPUTS() te bekijken</a>
+                        <h4>Afstandsbediening():</h4>
+                        <p>
+                            Deze methode declareert eerst een paar variabelen (met de mogelijke richtingen die de robot kan uitgaan). Daarna roept hij de methode “readINPUTS()” aan om de waardes in hun variabelen te plaatsen, daarna gaat de methode uitzoeken naar welke richting de joysticks zijn geplaatst, en gaan die richting in een string doorsturen via MQTT met het juiste topic naar de robot.
+                        </p>
+                        <p>
+                            Dit gebeurd om de 100 milliseconden.
+                        </p>
+                        <a href="#" onclick="openPopupAF(); return false;">Klik hier om Afstandsbediening() te bekijken</a>
+                        <h4>Alle flowcharts zijn ook beschikbaar via ons GitHub project.</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- De popup decl -->
+            <div class="popup" id="fotoPopupDecl">
+                <span class="popup-close" onclick="closePopupDecl()">&times;</span>
+                <img src="./images/flowDeclaraties.png" alt="flowDeclaraties">
+            </div>
+
+            <!-- De popup ske -->
+            <div class="popup" id="fotoPopupSke">
+                <span class="popup-close" onclick="closePopupSke()">&times;</span>
+                <img src="./images/sketch.png" alt="flowSketch">
+            </div>
+
+            <!-- De popup loop -->
+            <div class="popup" id="fotoPopupLoop">
+                <span class="popup-close" onclick="closePopupLoop()">&times;</span>
+                <img src="./images/loop.png" alt="flowLoop">
+            </div>
+
+            <!-- De popup set -->
+            <div class="popup" id="fotoPopupSet">
+                <span class="popup-close" onclick="closePopupSet()">&times;</span>
+                <img src="./images/flowSetup.png" alt="flowSet">
+            </div>
+
+            <!-- De popup iniWifi -->
+            <div class="popup" id="fotoPopupIniWifi">
+                <span class="popup-close" onclick="closePopupIniWifi()">&times;</span>
+                <img src="./images/initWifi.png" alt="flow iniWifi">
+            </div>
+
+            <!-- De popup iniInp -->
+            <div class="popup" id="fotoPopupIniInp">
+                <span class="popup-close" onclick="closePopupIniInp()">&times;</span>
+                <img src="./images/initINPUTS.png" alt="flow initInputs">
+            </div>
+
+            <!-- De popup mqttCon -->
+            <div class="popup" id="fotoPopupmqttCon">
+                <span class="popup-close" onclick="closePopupmqttCon()">&times;</span>
+                <img src="./images/mqttConnect.png" alt="flow mqttConnect">
+            </div>
+
+            <!-- De popup readINP -->
+            <div class="popup" id="fotoPopupReadINP">
+                <span class="popup-close" onclick="closePopupReadINP()">&times;</span>
+                <img src="./images/readINPUTS.png" alt="flow readINPUTS">
+            </div>
+
+            <!-- De popup Af -->
+            <div class="popup" id="fotoPopupAF">
+                <span class="popup-close" onclick="closePopupAF()">&times;</span>
+                <img src="./images/afstandsbediening.png" alt="flow Afstandsbediening">
+            </div>
+
+
+            <div class="kader" id="MQTT">
+                <div class="content">
+                    <div class="text">
+                        <h2>MQTT:</h2>
+                        <p>MQTT is een lichtgewicht communicatieprotocol, vooral gebruikt in IoT-toepassingen. Het werkt via een publish/subscribe-model:</p>
+                        <li>Broker: centrale server die berichten ontvangt en doorstuurt.</li>
+                        <li>Publisher: stuurt berichten naar een topic.</li>
+                        <li>Subscriber: ontvangt berichten van topics waarop hij is geabonneerd.</li>
+                        <p>Bijvoorbeeld: een sensor stuurt temperatuur naar het topic sensor/temperatuur, en een app die daarop geabonneerd is, ontvangt die waarde automatisch.</p>
+                        <p>Voordelen:</p>
+                        <li>Weinig data- en energieverbruik</li>
+                        <li>Betrouwbaar via QoS-niveaus</li>
+                        <li>Ideaal voor trage of onbetrouwbare netwerken</li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kader" id="Node-red">
+                <div class="content">
+                    <div class="text">
+                        <h2>Node-red:</h2>
+                        <p>
+                            Node red is een programma dat draait op de laptop en de Raspberry Pi. Op de laptop is het enige waar het programma voor dient om een visueel bedienings-dashboard te maken en de inputs daarvan door te sturen naar de Raspberry Pi op de robot via MQTT. Op de Raspberry Pi dient het programma om de MQTT berichten te verwerken en de juiste pinnen op de Raspberry Pi aan te sturen, zodat de robot de juiste richting uit gaat.
+                        </p>
+                        <h3>Node-red op de Raspberry Pi:</h3><br>
+                        <a href="#" onclick="openPopupRPI(); return false;">Klik hier om het programma van Node-red op de Raspberry Pi te bekijken</a>
+                        <p>Op de foto zie je links 3 MQTT-in nodes (paars), die dienen om de MQTT-berichten, die binnen komen van de mosquitto broker op de Raspberry Pi, op te halen. De eerste ontvangt berichten met topic “Robot/Richting” op, de tweede berichten met topic “Robot/Draaien”, en de laatste berichten met topic “Robot/Snelheid”.</p>
+                        <p>Deze worden verder gestuurd naar één function node (oranje), deze filtert alle berichten op topic (vb. Robot/Richting, …), daarna stuurt deze, afhankelijk van wat het bericht is in de topic, de juiste pinnen aan op de Raspberry Pi (via de rpi-gpio out nodes (blauw)).</p>
+                        <p>De eerste 4 rpi-gpio out nodes zijn bedoelt om elke motor aan of uit te zetten (true = aan), de volgende 4 zijn om de richting van elke motor te bepalen (true = vooruit) en de laatste 4 zijn om de snelheid van elke motor te regelen (getal van 0 tot 100) (100 = snelste). Dit gebeurd met PWM, dat wil zeggen als een men getal van 60 meegeeft, de pin 60% van de tijd hoog zal zijn en 40% van de tijd laag. Dit gebeurd heel snel.</p>
+                        <p>Op de foto kan je ook zien aan de titels van de nodes, welke pinnen ze aansturen.</p>
+
+                        <h3>Node-red op de laptop:</h3><br>
+                        <a href="#" onclick="openPopupNRL(); return false;">Klik hier om het programma van Node-red op de laptop te bekijken</a>
+                        <p>Op de foto zie je links de 8 blokken die gekoppeld zijn aan de knoppen/slider op het dashboard. De eerste 4 zijn voor de richting van de robot, de 2 erna zijn voor het draaien van de robot. Ze geven hun staat (true of false) door aan de bovenste function node die ernaast staat (oneven function node), en die zorgt ervoor dat de MQTT-out node (paars) ernaast, het juiste bericht krijgt, dat bericht wordt dan verstuurd via MQTT naar de mosquitto broker op de Raspberry Pi. De andere function node zorgt ervoor dat als je een knop aanzet dat de andere knoppen uitgaan, zo kunnen er geen 2 richtingen tegelijk aan staan. De laatste (de slider) is voor het regelen van de snelheid van de robot, deze geeft direct een waarde van 0 tot 100 door aan de MQTT-out node en dit wordt dan verder verstuurd op dezelfde manier.</p>
+                        <p>Dit is het dashboard die we gemaakt hebben en gelinkt is aan de node-red flow:</p>
+                        <img src="./images/blokschema dashboard.png" alt="dashboard" height="175">
+                    </div>
+                </div>
+            </div>
+
+            <!-- De popup Node-red RPI -->
+            <div class="popup" id="fotoPopupRPI">
+                <span class="popup-close" onclick="closePopupRPI()">&times;</span>
+                <img src="./images/Node-redFlowRPI.png" alt="flow Node-red RPI">
+            </div>
+
+            <!-- De popup Node-red Laptop -->
+            <div class="popup" id="fotoPopupNRL">
+                <span class="popup-close" onclick="closePopupNRL()">&times;</span>
+                <img src="./images/Node-redFlow Laptop.png" alt="flow Node-red laptop">
+            </div>
+         </main>
+         <footer>
+            <p>&copy; 2025 Mecanum Robot. Alle rechten voorbehouden.</p>
+         </footer>
+        <script src="scripts.js"></script>
+    </body>
+</html>
