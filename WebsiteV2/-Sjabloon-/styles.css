@@ -5,7 +5,7 @@ body {
 
 .navbar {
     display: flex;
-    background-color: #333;
+    background-color: #02577a; /* Kleur van de hoofdtitel uit het kleurenpalet */
     overflow: hidden;
     justify-content: center;
 }
@@ -20,13 +20,12 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #575757;
+    background-color: #048bbf;
 }
 
 .banner {
     max-width: 100%;
     overflow-x: hidden;
-    filter: brightness(50%);
 }
 
 .bannerBox {
@@ -46,6 +45,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 10px;
     font-size: 50px;
     font-weight: bold;
 }
@@ -56,6 +58,16 @@ body {
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+
+
+    line-height: 1.8;
+    color: #333; /* Neutrale kleur voor leesbaarheid */
+    font-style: italic;
+    background-color: #f6fcff; /* Zachtblauwe achtergrond uit het kleurenpalet */
+    padding: 30px;
+    border-left: 6px solid #02a9f7; /* Accentlijn links */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
@@ -63,30 +75,44 @@ h1 {
     text-align: center;
     font-size: 48px;
     font-weight: bold;
-    color: #222;
     margin-top: 80px;
     margin-bottom: 30px;
     letter-spacing: 1px;
+    color: #02577a; /* Kleur van de hoofdtitel uit het kleurenpalet */
 }
 
 h2 {
     font-size: 28px;
     font-weight: bold;
-    color: #333;
     margin: 40px 0 20px;
     position: relative;
+
+
+    color: #02a9f7; /* Kleur van de tussentitel uit het kleurenpalet */
+    border-bottom: 2px solid #02a9f7; /* Onderlijn om de titel te accentueren */
 }
 
 h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #444;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 30px 0 15px;
     position: relative;
-    padding-left: 20px;
     text-decoration: underline;
+
+
+    font-size: 18px;
+    font-weight: bold;
+    margin: 30px 0 15px;
+    color: #048bbf; /* Een iets lichtere of afgeleide tint uit het kleurenpalet */
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0 10px;
+    color: #02577a; /* Terugkerende hoofdkleur voor visuele samenhang */
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
 }
 
 p {
@@ -127,13 +153,13 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
-    text-decoration: overline;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 footer {
     display: flex;
-    background-color: #333;
+    background-color: #02577a; /* Kleur van de hoofdtitel uit het kleurenpalet */
     overflow: hidden;
     justify-content: center;
     color: white;
