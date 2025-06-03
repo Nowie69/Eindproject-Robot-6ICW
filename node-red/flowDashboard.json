@@ -1,0 +1,839 @@
+[
+    {
+        "id": "1b9b71b49d572781",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2343733f62acaeb1",
+        "type": "ui_switch",
+        "z": "1b9b71b49d572781",
+        "name": "STOP",
+        "label": "",
+        "tooltip": "",
+        "group": "9254217202ce4dbc",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Robot/Richting",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "fa-stop",
+        "oncolor": "#ff0000",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "fa-stop",
+        "offcolor": "#000000",
+        "animate": false,
+        "className": "",
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "96d9617398a57011",
+                "42d0fcb10fec666a"
+            ]
+        ]
+    },
+    {
+        "id": "4280eec508eb9549",
+        "type": "ui_switch",
+        "z": "1b9b71b49d572781",
+        "name": "vooruit",
+        "label": "",
+        "tooltip": "",
+        "group": "9254217202ce4dbc",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Robot/Richting",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "fa-arrow-up",
+        "oncolor": "#ff0000",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "fa-arrow-up",
+        "offcolor": "#000000",
+        "animate": false,
+        "className": "",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "9bf707a476f5ac17",
+                "84f197807af68944"
+            ]
+        ]
+    },
+    {
+        "id": "0f787196559d8447",
+        "type": "ui_switch",
+        "z": "1b9b71b49d572781",
+        "name": "links",
+        "label": "",
+        "tooltip": "",
+        "group": "9254217202ce4dbc",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Robot/Richting",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "fa-arrow-left",
+        "oncolor": "#ff0000",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "fa-arrow-left",
+        "offcolor": "#000000",
+        "animate": false,
+        "className": "",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "96e1e48ebd25671e",
+                "e8ad3d7a3ca3c87b"
+            ]
+        ]
+    },
+    {
+        "id": "0cde1b19a50a3825",
+        "type": "ui_switch",
+        "z": "1b9b71b49d572781",
+        "name": "rechts",
+        "label": "",
+        "tooltip": "",
+        "group": "9254217202ce4dbc",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Robot/Richting",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "fa-arrow-right",
+        "oncolor": "#ff0000",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "fa-arrow-right",
+        "offcolor": "#000000",
+        "animate": false,
+        "className": "",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "8e3bb53e43f1a0d8",
+                "96d514621fd7156b"
+            ]
+        ]
+    },
+    {
+        "id": "16639ecfefeaca37",
+        "type": "ui_switch",
+        "z": "1b9b71b49d572781",
+        "name": "achteruit",
+        "label": "",
+        "tooltip": "",
+        "group": "9254217202ce4dbc",
+        "order": 8,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Robot/Richting",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "fa-arrow-down",
+        "oncolor": "#ff0000",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "fa-arrow-down",
+        "offcolor": "#000000",
+        "animate": false,
+        "className": "",
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "26e5a4dc375f8d91",
+                "70d89de50f55369e"
+            ]
+        ]
+    },
+    {
+        "id": "10224a3bca2fce21",
+        "type": "ui_slider",
+        "z": "1b9b71b49d572781",
+        "name": "Snelheid",
+        "label": "",
+        "tooltip": "",
+        "group": "463b15dea66389a0",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "outs": "all",
+        "topic": "Robot/Snelheid",
+        "topicType": "str",
+        "min": 0,
+        "max": "100",
+        "step": "5",
+        "className": "",
+        "x": 180,
+        "y": 680,
+        "wires": [
+            [
+                "760ae200e5b728fb",
+                "eae3b01c2a03d92b"
+            ]
+        ]
+    },
+    {
+        "id": "9bf707a476f5ac17",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 1",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = \"Rij vooruit\";\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 80,
+        "wires": [
+            [
+                "2fbad267546c9148"
+            ]
+        ]
+    },
+    {
+        "id": "84f197807af68944",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 2",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = false;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "0f787196559d8447",
+                "0cde1b19a50a3825",
+                "16639ecfefeaca37",
+                "2343733f62acaeb1",
+                "5e3c8008ad549faa",
+                "8ee906610a283f4c"
+            ]
+        ]
+    },
+    {
+        "id": "96e1e48ebd25671e",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 3",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = \"Rij links\";\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "829a8d1e9dd680e8"
+            ]
+        ]
+    },
+    {
+        "id": "e8ad3d7a3ca3c87b",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 4",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = false;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "4280eec508eb9549",
+                "0cde1b19a50a3825",
+                "16639ecfefeaca37",
+                "2343733f62acaeb1",
+                "5e3c8008ad549faa",
+                "8ee906610a283f4c"
+            ]
+        ]
+    },
+    {
+        "id": "8e3bb53e43f1a0d8",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 5",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = \"Rij rechts\";\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "86bfa92e6bad7808"
+            ]
+        ]
+    },
+    {
+        "id": "96d514621fd7156b",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 6",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = false;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "4280eec508eb9549",
+                "0f787196559d8447",
+                "16639ecfefeaca37",
+                "2343733f62acaeb1",
+                "5e3c8008ad549faa",
+                "8ee906610a283f4c"
+            ]
+        ]
+    },
+    {
+        "id": "26e5a4dc375f8d91",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 7",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = \"Rij achteruit\";\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "8c7a40c42080cbb0"
+            ]
+        ]
+    },
+    {
+        "id": "70d89de50f55369e",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 8",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = false;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 360,
+        "wires": [
+            [
+                "4280eec508eb9549",
+                "0f787196559d8447",
+                "0cde1b19a50a3825",
+                "2343733f62acaeb1",
+                "5e3c8008ad549faa",
+                "8ee906610a283f4c"
+            ]
+        ]
+    },
+    {
+        "id": "96d9617398a57011",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 9",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = \"STOP\";\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "4738cbc250b436fd"
+            ]
+        ]
+    },
+    {
+        "id": "42d0fcb10fec666a",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 10",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = false;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 440,
+        "wires": [
+            [
+                "16639ecfefeaca37",
+                "0cde1b19a50a3825",
+                "0f787196559d8447",
+                "4280eec508eb9549",
+                "5e3c8008ad549faa",
+                "8ee906610a283f4c"
+            ]
+        ]
+    },
+    {
+        "id": "760ae200e5b728fb",
+        "type": "debug",
+        "z": "1b9b71b49d572781",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "eae3b01c2a03d92b",
+        "type": "mqtt out",
+        "z": "1b9b71b49d572781",
+        "name": "Snelheid",
+        "topic": "Robot/Snelheid",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d95cdb66fd446e0",
+        "x": 380,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "8ee906610a283f4c",
+        "type": "ui_switch",
+        "z": "1b9b71b49d572781",
+        "name": "Draai rechts",
+        "label": "",
+        "tooltip": "",
+        "group": "9254217202ce4dbc",
+        "order": 9,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Robot/Richting",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "fa-repeat",
+        "oncolor": "#ff0000",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "fa-repeat",
+        "offcolor": "#000000",
+        "animate": false,
+        "className": "",
+        "x": 190,
+        "y": 580,
+        "wires": [
+            [
+                "5856dd97ad0558a4",
+                "0234d74b74ac267d"
+            ]
+        ]
+    },
+    {
+        "id": "5e3c8008ad549faa",
+        "type": "ui_switch",
+        "z": "1b9b71b49d572781",
+        "name": "Draai links",
+        "label": "",
+        "tooltip": "",
+        "group": "9254217202ce4dbc",
+        "order": 7,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Robot/Draaien",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "fa-undo",
+        "oncolor": "#ff0000",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "fa-undo",
+        "offcolor": "#000000",
+        "animate": false,
+        "className": "",
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "842e6ae838e24349",
+                "84820f49e3ea2905"
+            ]
+        ]
+    },
+    {
+        "id": "842e6ae838e24349",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 11",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = \"Draai links\";\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 480,
+        "wires": [
+            [
+                "0f787196559d8447",
+                "ae7f9c86aafd6424"
+            ]
+        ]
+    },
+    {
+        "id": "84820f49e3ea2905",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 12",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = false;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 520,
+        "wires": [
+            [
+                "8ee906610a283f4c",
+                "2343733f62acaeb1",
+                "16639ecfefeaca37",
+                "0cde1b19a50a3825",
+                "4280eec508eb9549"
+            ]
+        ]
+    },
+    {
+        "id": "5856dd97ad0558a4",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 13",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = \"Draai rechts\";\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 560,
+        "wires": [
+            [
+                "11d94aa9b4278a4d"
+            ]
+        ]
+    },
+    {
+        "id": "0234d74b74ac267d",
+        "type": "function",
+        "z": "1b9b71b49d572781",
+        "name": "function 14",
+        "func": "if(msg.payload == true)\n{\n    msg.payload = false;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 600,
+        "wires": [
+            [
+                "5e3c8008ad549faa",
+                "2343733f62acaeb1",
+                "16639ecfefeaca37",
+                "0cde1b19a50a3825",
+                "0f787196559d8447",
+                "4280eec508eb9549"
+            ]
+        ]
+    },
+    {
+        "id": "2fbad267546c9148",
+        "type": "mqtt out",
+        "z": "1b9b71b49d572781",
+        "name": "Richting = vooruit",
+        "topic": "Robot/Richting",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d95cdb66fd446e0",
+        "x": 670,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "829a8d1e9dd680e8",
+        "type": "mqtt out",
+        "z": "1b9b71b49d572781",
+        "name": "Richting = links",
+        "topic": "Robot/Richting",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d95cdb66fd446e0",
+        "x": 680,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "86bfa92e6bad7808",
+        "type": "mqtt out",
+        "z": "1b9b71b49d572781",
+        "name": "Richting = rechts",
+        "topic": "Robot/Richting",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d95cdb66fd446e0",
+        "x": 670,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8c7a40c42080cbb0",
+        "type": "mqtt out",
+        "z": "1b9b71b49d572781",
+        "name": "Richting = achteruit",
+        "topic": "Robot/Richting",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d95cdb66fd446e0",
+        "x": 680,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4738cbc250b436fd",
+        "type": "mqtt out",
+        "z": "1b9b71b49d572781",
+        "name": "Richting = STOP",
+        "topic": "Robot/Richting",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d95cdb66fd446e0",
+        "x": 670,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ae7f9c86aafd6424",
+        "type": "mqtt out",
+        "z": "1b9b71b49d572781",
+        "name": "Draaien = links",
+        "topic": "Robot/Draaien",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d95cdb66fd446e0",
+        "x": 660,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "11d94aa9b4278a4d",
+        "type": "mqtt out",
+        "z": "1b9b71b49d572781",
+        "name": "Draaien = rechts",
+        "topic": "Robot/Draaien",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d95cdb66fd446e0",
+        "x": 670,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "a9923f41428ff69b",
+        "type": "ui_spacer",
+        "z": "1b9b71b49d572781",
+        "name": "spacer",
+        "group": "9254217202ce4dbc",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "73c859a361cc5454",
+        "type": "ui_spacer",
+        "z": "1b9b71b49d572781",
+        "name": "spacer",
+        "group": "9254217202ce4dbc",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9254217202ce4dbc",
+        "type": "ui_group",
+        "name": "Richting",
+        "tab": "4f18d09580e45955",
+        "order": 1,
+        "disp": false,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "463b15dea66389a0",
+        "type": "ui_group",
+        "name": "Snelheid",
+        "tab": "4f18d09580e45955",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1d95cdb66fd446e0",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "192.168.0.245",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4f18d09580e45955",
+        "type": "ui_tab",
+        "name": "Mecanum Robot",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
