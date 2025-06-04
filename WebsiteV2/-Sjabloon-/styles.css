@@ -202,3 +202,8 @@ footer {
 .overOns img {
     border-radius: 50%;
 }
+
+.pdf {
+    font-size: large;
+    color: darkred;
+}

@@ -35,6 +35,7 @@
                 <div class="content">
                     <div class="text">
                         <h2>De flowcharts:</h2>
+                        <a class="pdf" href="./flowchart controller.pdf" target="_blank">Open de flowcharts</a>
                         <h3>Declaraties</h3>
                         <p>
                             Hier worden verschillende zaken gedeclareerd die nodig zijn voor het opzetten van een WiFi- en MQTT-gestuurde afstandsbediening met joysticks. Er worden variabelen aangemaakt waar later waardes in kunnen gestoken worden, ook wordt er aan elke pin die we gebruiken een duidelijke naam gegeven.
@@ -85,7 +86,7 @@
                             Dit gebeurd om de 100 milliseconden.
                         </p>
                         <a href="#" onclick="openPopupAF(); return false;">Klik hier om Afstandsbediening() te bekijken</a>
-                        <h4>Alle flowcharts zijn ook beschikbaar via ons GitHub project.</h4>
+                        <h4>Alle flowcharts zijn ook beschikbaar via ons GitHub project en de rode link bovenaan.</h4>
                     </div>
                 </div>
             </div>
@@ -160,12 +161,14 @@
                         <li>Betrouwbaar via QoS-niveaus</li>
                         <li>Ideaal voor trage of onbetrouwbare netwerken</li>
                     </div>
+                    <img src="./images/MQTT.jpeg" alt="MQTT" height="300">
                 </div>
             </div>
 
             <div class="kader" id="Node-red">
                 <div class="content">
                     <div class="text">
+                        <img src="./images/Node-red-icon.png" alt="node-red" height="150">
                         <h2>Node-red:</h2>
                         <p>
                             Node red is een programma dat draait op de laptop en de Raspberry Pi. Op de laptop is het enige waar het programma voor dient om een visueel bedienings-dashboard te maken en de inputs daarvan door te sturen naar de Raspberry Pi op de robot via MQTT. Op de Raspberry Pi dient het programma om de MQTT berichten te verwerken en de juiste pinnen op de Raspberry Pi aan te sturen, zodat de robot de juiste richting uit gaat.
